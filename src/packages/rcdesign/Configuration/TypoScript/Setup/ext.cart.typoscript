@@ -1,0 +1,157 @@
+plugin.tx_cart {
+    view {
+        templateRootPaths.100 = EXT:rcdesign/Resources/Private/Extensions/cart/Private/Templates/
+        partialRootPaths.100 = EXT:rcdesign/Resources/Private/Extensions/cart/Private/Partials/
+        layoutRootPaths.100 = EXT:rcdesign/Resources/Private/Extensions/cart/Private/Layouts/
+    }
+    settings {
+        addToCartByAjax = 2278001
+
+        backend {
+            dateFormat = d-m-Y
+        }
+        cart {
+            pid = 2
+        }
+        order{
+            pid = 6
+        }
+
+        mail {
+            // Used for emails sent to the customer (=buyer)
+            buyer {
+                fromAddress = shop@example.com
+            }
+
+            // Used for emails sent to the shop owner (=seller)
+            seller {
+                fromAddress = Cart TYPO3 System
+                toAddress = seller@example.com
+            }
+        }
+
+        cart {
+            acceptTermsAndConditions.pid = 12
+            acceptPrivacyPolicy.pid = 11
+        }
+
+        validation {
+            orderItem {
+                fields {
+                    acceptRevocationInstruction >
+                }
+            }
+        }
+
+        countries {
+            preset = 1
+            options {
+                1 {
+                    code = at
+                    label = Österreich
+                }
+                2 {
+                    code = de
+                    label = Deutschland
+                }
+                3 {
+                    code = ch
+                    label = Schweiz
+                }
+            }
+        }
+        showCartAction {
+            showPartials {
+                couponForm = false
+
+                # if setting shippingAddressForm to false please disable all validations too
+                shippingAddressForm = false
+
+                shippingMethodForm = true
+                paymentMethodForm = true
+            }
+
+            summary {
+                fields {
+                    cart.net = true
+                    cart.taxes = true
+                    discount.gross = true
+                    service.gross = true
+                    total.gross = true
+                }
+            }
+        }
+    }
+    taxClasses {
+        1 {
+            value = 20
+            calc = 0.20
+            name = normal
+        }
+        2 {
+            value = 10
+            calc = 0.10
+            name = reduced
+        }
+        3 {
+            value = 0
+            calc = 0.00
+            name = free
+        }
+    }
+    payments {
+        countries {
+            at {
+                preset = 1
+                options {
+                    1 {
+                        title = Vorkasse
+                        extra = 0.00
+                        taxClassId = 1
+                        status = open
+                    }
+                }
+            }
+            de < .at
+            ch < .at
+        }
+    }
+    shippings {
+        countries {
+            at {
+                preset = 1
+                options {
+                    1 {
+                        title = E-Mail
+                        extra = 0.00
+                        taxClassId = 3
+                        status = open
+                    }
+                }
+            }
+            de < .at
+            ch < .at
+        }
+    }
+}
+
+ajaxCart = PAGE
+ajaxCart {
+    typeNum = 2278001
+
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = 0
+        admPanel = 0
+        debug = 0
+        no_cache = 1
+    }
+
+    10 = EXTBASEPLUGIN
+    10 {
+        vendorName = Extcode
+        extensionName = Cart
+        pluginName = Cart
+        controller = Product
+    }
+}

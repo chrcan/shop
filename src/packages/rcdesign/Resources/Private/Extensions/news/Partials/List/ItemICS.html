@@ -1,0 +1,37 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers" data-namespace-typo3-fluid="true">
+<!--
+	=====================
+	Partials/List/ItemICS.html
+-->
+<f:comment>
+    <f:debug>{_all}</f:debug>
+</f:comment>
+
+<div class="card">
+    <n:excludeDisplayedNews newsItem="{newsItem}" />
+
+    <f:link.external uri="{newsItem.teaser}" target="_blank">
+        <f:sanitize.html>
+            <img src="{newsItem.author}" class="image" onmouseover="alert(document.location)">
+        </f:sanitize.html>
+    </f:link.external>
+
+    <div class="card-body">
+        <!-- header -->
+        <f:link.external uri="{newsItem.teaser}" target="_blank">
+            <h4 class="card-title">{newsItem.title}</h4>
+        </f:link.external>
+        <p class="card-text">
+        <h4 class="text-bold">
+            <f:format.date format="d.m.Y">{newsItem.keywords}</f:format.date>
+            -
+            <f:format.date format="d.m.Y" base="{newsItem.description}">-1 day</f:format.date>
+        </h4>
+        <p>Veranstaltungsort: <f:link.external uri="{newsItem.teaser}" target="_blank">{newsItem.bodytext}
+            </f:link.external>
+        </p>
+    </div>
+</div>
+
+</html>

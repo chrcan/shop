@@ -1,0 +1,91 @@
+mod.web_layout.BackendLayouts {
+
+  Startseite {
+    title = Startseite
+    icon = EXT:rcdesign/Resources/Public/Icons/BackendLayouts/1col.png
+    config {
+      backend_layout {
+        colCount = 1
+        rowCount = 2
+        rows {
+          1 {
+            columns {
+              1 {
+                name = Slider
+                colPos = 5
+              }
+            }
+          }
+          2 {
+            columns {
+              2 {
+                name = Normal
+                colPos = 0
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  Unterseiten {
+    title = Unterseite
+    icon = EXT:rcdesign/Resources/Public/Icons/BackendLayouts/1col.png
+    config {
+      backend_layout {
+        colCount = 1
+        rowCount = 1
+        rows {
+          1 {
+            columns {
+              1 {
+                name = Normal
+                colPos = 0
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+/*
+  Startseite {
+    title = Startseite
+    icon = EXT:rcdesign/Resources/Public/Icons/BackendLayouts/1colslider.png
+    config {
+      backend_layout {
+        colCount = 1
+        rowCount = 3
+        rows {
+          1 {
+            columns {
+              1 {
+                name = Slider
+                colPos = 5
+              }
+            }
+          }
+          2 {
+            columns {
+              1 {
+                name = Normal
+                colPos = 0
+              }
+            }
+          }
+          3 {
+            columns {
+              1 {
+                name = Werbeslogan
+                colPos = 2
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  */
+
+}

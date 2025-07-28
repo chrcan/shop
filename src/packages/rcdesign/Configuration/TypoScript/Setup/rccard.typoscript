@@ -1,0 +1,31 @@
+lib.contentElement {
+    templateRootPaths.200 = EXT:rcdesign/Resources/Private/PageView/Pages/ContentElement/
+}
+
+# CTYPE: CARDGROUP
+tt_content {
+    rcdesign_rccard =< lib.contentElement
+    rcdesign_rccard {
+        templateName = RcCard
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            10 {
+                table = rccard_group_item
+                pidInList.field = pid
+                where {
+                data = field:uid
+                intval = 1
+                wrap = tt_content=|
+                }
+                orderBy = sorting
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = image
+                        as = image
+                    }
+                }
+            }
+        }
+    }
+}

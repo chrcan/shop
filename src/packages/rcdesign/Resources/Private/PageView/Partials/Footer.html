@@ -1,0 +1,67 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true"
+    xmlns:phone="http://typo3.org/ns/Rcdesign/Rcdesign/ViewHelpers">
+
+<f:comment>
+    {namespace phone=Rcdesign\Rcdesign\ViewHelpers}
+</f:comment>
+
+<f:spaceless>
+
+    <footer class="py-5 bg-dark mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Kontakt <span>Daten</span></h3>
+                    <address class="text-white">
+                        rc design visual concepts <br>
+                        Heilbad 1 <br>
+                        5724 Stuhlfelden <br>
+                        Mail: <f:link.email email="werbegrafik@rc-design.at">werbegrafik@rc-design.at</f:link.email><br>
+                        Phone: <phone:phone phone="+43 6541 8360">+43-6541-8360</phone:phone><br>
+                        Tester:
+                        <f:cObject typoscriptObjectPath="lib.header" />
+                    </address>
+
+                    <f:comment>
+                        <f:cObject typoscriptObjectPath="lib.webp" />
+                        <f:cObject typoscriptObjectPath="lib.title" />
+                        {article -> f:cObject(typoscriptObjectPath: 'lib.title')}
+                    </f:comment>
+
+                </div>
+                <div class="col-md-4">
+                    <h3>Wichtige <span>Menüpunkte</span></h3>
+                    <f:if condition="{metaNav}">
+                        <ul class="metaMenu">
+                            <f:for each="{metaNav}" as="item">
+                                <li>
+                                    <f:link.page pageUid="{item.data.uid}" title="{item.title}" target="{item.target}">
+                                        {item.title}</f:link.page>
+                                </li>
+                            </f:for>
+                        </ul>
+                    </f:if>
+                </div>
+                <div class="col-md-4">
+                    <h3>Social <span>Network</span></h3>
+                    <div class="jahr">
+                        <div class="footer-sociallinks">
+                            <f:render partial="Social" arguments="{_all}" />
+                        </div>
+                        <br />
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Ihre Suchanfrage"
+                                aria-label="Ihre Suchanfrage" aria-describedby="btnGroupAddon">
+                            <button type="button" class="btn btn-outline-warning">Suche Absenden</button>
+                        </div>
+                        <br />
+                        <f:render partial="Year" arguments="{_all}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</f:spaceless>
+
+</html>

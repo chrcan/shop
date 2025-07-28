@@ -1,0 +1,255 @@
+lib.watermark_res_rc = COA
+lib.watermark_res_rc {
+  20 = IMG_RESOURCE
+  20 {
+    file = GIFBUILDER
+    file {
+      XY = [10.w],[10.h]
+      format = webp
+
+      10 = IMAGE
+      10 {
+        file {
+          import.field = image
+          // treatIdAsReference = 1
+        }
+      }
+
+      20 = IMAGE
+      20 {
+        offset = 10,10
+        file = EXT:rcdesign/Resources/Public/Icons/ifbb-logoW.png
+        file {
+          maxW = 200
+        }
+      }
+    }
+  }
+}
+
+lib.header = IMAGE
+lib.header {
+  file = GIFBUILDER
+  file {
+    XY = 640,480
+    format = webp
+
+    10 = IMAGE
+    10.file = 1:/T3/Backimage.jpg
+
+    // # Example 1, light gray box (#cccccc), no box transparency
+    // 20 = IMAGE
+    // 20 {
+    //   offset = 50,50
+    //   XY = [mask.W],40
+
+    //   file = GIFBUILDER
+    //   file {
+    //     XY = 400,40
+    //     # The color of the box
+    //     backColor = #cccccc
+    //   }
+
+    //   mask = GIFBUILDER
+    //   mask {
+    //     XY = [10.w]+40,40
+    //     # The transparency of the box:
+    //     # #000000 = fully transparent like the text
+    //     # #ffffff = nothing transparent at all
+    //     backColor = #ffffff
+
+    //     10 = TEXT
+    //     10 {
+    //       text = TYPO3 rulez !
+    //       # The transparency of the text
+    //       # Same rules as above
+    //       fontColor = #000000
+    //       fontSize = 20
+    //       offset = 20,30
+    //       fontFile = EXT:rcdesign/Resources/Public/Fonts/roboto/Roboto-Bold.ttf
+    //     }
+    //   }
+    // }
+    20 = IMAGE
+    20 {
+      offset = 10,10
+      file = EXT:rcdesign/Resources/Public/Icons/ifbb-logoW.png
+      file {
+        maxW = 200
+      }
+    }
+
+    # Example 2, light green box, half transparent
+    30 = IMAGE
+    30 {
+      offset = 25,160
+      XY = [mask.W],40
+
+      file = GIFBUILDER
+      file {
+        XY = 400,40
+        backColor = #66ff66
+      }
+
+      mask = GIFBUILDER
+      mask {
+        XY = [10.w]+40,40
+        backColor = #808080
+
+        10 = TEXT
+        10 {
+          text = TYPO3 rulez !
+          fontColor = #ffffff
+          fontSize = 20
+          offset = 20,30
+          fontFile = EXT:rcdesign/Resources/Public/Fonts/roboto/Roboto-Bold.ttf
+        }
+      }
+    }
+
+    # Example 2, light red box, no box transparency, bold + not antialiased text
+    40 = IMAGE
+    40 {
+      offset = 0,200
+      XY = [mask.W],40
+
+      file = GIFBUILDER
+      file {
+        XY = 400,40
+        backColor = #ff6666
+      }
+
+      mask = GIFBUILDER
+      mask {
+        XY = [10.w]+40,40
+        backColor = #ffffff
+
+        10 = TEXT
+        10 {
+          text = TYPO3 rulez !
+          fontColor = #000000
+          fontSize = 20
+          offset = 20,30
+          fontFile = EXT:rcdesign/Resources/Public/Fonts/roboto/Roboto-Bold.ttf
+          # Bold
+          iterations = 5
+          # Antialiased
+          antiAlias = 0
+        }
+      }
+    }
+
+    # Example 3, box lila mit weißer schrift
+    50 = IMAGE
+    50 {
+      offset = 25,240
+
+      file = GIFBUILDER
+      file {
+        # Dummy-Größe initial, wird von Element 10 überschrieben
+        XY = [10.boundingBoxWidth+40],40
+
+        backColor = #ff66d9
+
+        10 = TEXT
+        10 {
+          text = TYPO3 rulez !
+          fontColor = #FFFFFF
+          fontSize = 20
+          offset = 20,28
+          fontFile = EXT:rcdesign/Resources/Public/Fonts/roboto/Roboto-Bold.ttf
+          niceText = 1
+          # boundingBox erlaubt uns später die Breite zu berechnen
+          boundingBox = 1
+        }
+      }
+
+      mask = GIFBUILDER
+      mask {
+        XY = [10.boundingBoxWidth+40],40
+        backColor = #FFFFFF
+      }
+    }
+
+    60 = IMAGE
+    60 {
+      offset = 50,280
+      XY = [mask.W],40
+
+      file = GIFBUILDER
+      file {
+        XY = 400,40
+        # The color of the box
+        backColor = #cccccc
+
+
+
+
+        10 = TEXT
+        10 {
+          text = TYPO3 ist ein CMS !
+          # The transparency of the text
+          # Same rules as above
+          fontColor = #000000
+          fontSize = 20
+          offset = 20,28
+          fontFile = EXT:rcdesign/Resources/Public/Fonts/roboto/Roboto-Bold.ttf
+        }
+      }
+      mask = GIFBUILDER
+      mask {
+        XY = 440,40
+        # The transparency of the box:
+        backColor = #ffffff
+      }
+    }
+
+  }
+}
+// lib.image = IMAGE
+// lib.image {
+//   file = GIFBUILDER
+//   file {
+//     XY = 1024,768
+//     format = jpg
+
+//     10 = IMAGE
+//     10 {
+//       file {
+//         import.field = image
+//         #treatIdAsReference = 1
+//       }
+//     }
+
+//     20 = EFFECT
+//     20.value = gamma=1.3 | flip | rotate=180
+//   }
+// }
+
+// lib.elipse = IMAGE
+// lib.elipse {
+//   file = GIFBUILDER
+//   file {
+//     XY = 60,30
+//     format = webp
+
+//     10 = ELLIPSE
+//     10.dimensions = 30,15,60,30
+//     10.color = red
+//   }
+// }
+
+// lib.webp = IMAGE
+// lib.webp {
+//   file = GIFBUILDER
+//   file {
+//     backColor = yellow
+//     XY = 1024,199
+//     format = webp
+//     quality = 44
+
+//     10 = IMAGE
+//     10.offset = 10,10
+//     10.file = 1:/T3/Backimage.jpg
+//   }
+// }

@@ -1,0 +1,31 @@
+lib.contentElement {
+  templateRootPaths.200 = EXT:rcdesign/Resources/Private/PageView/Pages/ContentElement/
+}
+
+tt_content {
+  rcdesign_rctab =< lib.contentElement
+  rcdesign_rctab {
+    templateName = RcTab
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        10 {
+            table = rctab_tab_item
+            pidInList.field = pid
+            where {
+                data = field:uid
+                intval = 1
+                wrap = tt_content=|
+            }
+        }
+        20 = Rcdesign\Rcdesign\DataProcessing\SanitizeIdProcessor
+        20 {
+            // NEU: Sage dem Prozessor, dass er die Variable 'records' durchsuchen soll
+            dataVariableName = records
+            // Welches Feld IN jedem Record?
+            field = header
+            // Wie soll die neue Variable heißen?
+            as = sanitizedId
+        }
+    }
+  }
+}

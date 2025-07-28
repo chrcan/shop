@@ -1,0 +1,71 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:cb="http://typo3.org/ns/TYPO3/CMS/ContentBlocks/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:if condition="{data.card_group_item}">
+    <div class="row {data.settings.row_items} g-4">
+        <f:for each="{data.card_group_item}" as="item" iteration="iteration">
+
+            <div class="col">
+                <div class="card h-100">
+                    <f:if condition="{item.image.0}">
+                        <f:render partial="LinkWrap" arguments="{link: item.link, link_title: item.title}"
+                            contentAs="content">
+                            <f:image src="{item.image.0.uid}" class="card-img-top" treatIdAsReference="1" />
+                        </f:render>
+                    </f:if>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <f:render partial="LinkWrap" arguments="{link: item.link, link_title: item.title}"
+                                contentAs="content">
+                                {item.title}
+                            </f:render>
+                        </h5>
+                        <f:if condition="{item.bodytext}">
+                            <f:format.raw>{item.bodytext}</f:format.raw>
+                        </f:if>
+                    </div>
+                    <f:if condition="{item.link}">
+                        <f:variable name="link_title">
+                            <f:if condition="{item.link_title}">
+                                <f:then>{item.link_title}</f:then>
+                                <f:else>
+                                    <f:translate key="{cb:languagePath()}:readmore" />
+                                </f:else>
+                            </f:if>
+                        </f:variable>
+                        <div class="card-footer d-grid gap-2 d-md-flex justify-content-between">
+                            <div class="btn btn-secondary disabled">
+                                <small class="text-body-light">Erstellt am
+                                    <f:format.date format="d.m.Y - H:i">
+                                        {item.creationDate}
+                                    </f:format.date>
+                                    Uhr
+                                </small>
+                            </div>
+                            <f:link.typolink parameter="{item.link}" class="btn btn-warning justify-content-md-end"
+                                title="{link_title}">
+                                <small class="text-body-secondary">{link_title}</small>
+                            </f:link.typolink>
+                        </div>
+                    </f:if>
+                </div>
+            </div>
+        </f:for>
+    </div>
+</f:if>
+
+
+<f:section name="LinkWrap">
+
+    <f:if condition="{link}">
+        <f:then>
+            <f:link.typolink parameter="{link}" title="{link_title}">{content -> f:format.raw()}</f:link.typolink>
+        </f:then>
+        <f:else>
+            {content -> f:format.raw()}
+        </f:else>
+    </f:if>
+
+</f:section>
+
+</html>

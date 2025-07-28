@@ -1,0 +1,67 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:asset.script identifier="prevent-multi-submit" src="EXT:cart/Resources/Public/JavaScript/prevent_multi_submit.js" />
+
+<f:form id="form-cart" class="form" name="orderItem" controller="Cart\Cart" action="update" method="post">
+    <div class="top-buffer">
+        <div class="col-sm-12">
+            <table class="checkout-product-table data-table table stack">
+                <colgroup>
+                    <col span="2" />
+                    <col width="1" />
+                    <col width="1" />
+                    <col width="1" />
+                    <col width="1" />
+                </colgroup>
+                <thead>
+                    <tr class="first last">
+                        <th colspan="2" class="col-md-6">
+                            <f:translate key="tx_cart_domain_model_cart_product.title" />
+                        </th>
+                        <th class="col-md-2 text-right">
+                            <f:translate key="tx_cart_domain_model_cart_product.price_per_unit_net" />
+                        </th>
+                        <th class="col-md-1">
+                            <f:translate key="tx_cart_domain_model_cart_product.count" />
+                        </th>
+                        <th class="col-md-2 text-right">
+                            <f:translate key="tx_cart_domain_model_cart_product.price_subtotal" />
+                        </th>
+                        <th class="col-md-1">
+                            &nbsp;
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <f:render partial="Cart/ProductForm/ProductList" arguments="{cart:cart, products:cart.products}" />
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <f:if condition="{settings.showCartAction.showPartials.shippingAddressForm}">
+            <f:render partial="Cart/OrderForm/Address/Shipping"
+                arguments="{cart:cart, shippingAddress:shippingAddress}" />
+        </f:if>
+    </div>
+    <div class="col-sm-6">
+        <f:if condition="{settings.showCartAction.showPartials.billingAddressForm}">
+            <f:render partial="Cart/OrderForm/Address/Billing" arguments="{cart:cart, billingAddress:billingAddress}" />
+        </f:if>
+    </div>
+
+    <div class="top-buffer bottom-buffer">
+        <div class="col-sm-12 d-flex justify-content-between">
+            <f:link.action controller="Cart\Cart" action="clear" class="btn btn-danger">
+                <f:translate key="tx_cart.clear_cart" />
+            </f:link.action>
+
+            <f:form.submit class="btn btn-warning"
+                value="{f:translate(key: 'tx_cart.update_cart', default: '[submit update]')}" />
+        </div>
+    </div>
+
+</f:form>
+
+</html>

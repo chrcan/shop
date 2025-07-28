@@ -1,0 +1,48 @@
+{
+    "name": "rcdesign/rcdesign",
+    "description": "Sitepackage RCDesign",
+    "type": "typo3-cms-extension",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Christian Racan",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^13.4"
+    },
+    "replace": {
+        "rcdesign/rcdesign": "self.version",
+        "typo3-ter/rcdesign": "self.version"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rcdesign\\Rcdesign\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rcdesign\\Rcdesign\\Tests\\": "Tests"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "rcdesign"
+        }
+    },
+    "author": [
+        {
+            "company": "rc design visual concepts",
+            "name": "Christian Racan",
+            "role": "Developer"
+        }
+    ]
+}

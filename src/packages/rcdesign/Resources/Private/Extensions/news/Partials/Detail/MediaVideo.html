@@ -1,0 +1,17 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<div class="mediaelement">
+    <div class="embed-responsive embed-responsive-16by9">
+        <f:media class="embed-responsive-item" file="{mediaElement}" width="{settings.detail.media.video.width}"
+            height="{settings.detail.media.video.height}" />
+    </div>
+
+    <f:if condition="{mediaElement.description}">
+        <div class="medialement-alternative-content">
+            <p class="news-img-caption">
+                {mediaElement.description}
+            </p>
+        </div>
+    </f:if>
+</div>
+
+</html>

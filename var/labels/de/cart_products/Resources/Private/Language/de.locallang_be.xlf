@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2019-11-21T00:45:00Z" product-name="cart_products" target-language="de">
+    <header/>
+    <body>
+      <trans-unit id="extmng.categoryRestriction.current_pid" xml:space="preserve" approved="yes">
+<source>Categories from current page</source>
+<target state="final">Kategorien von aktueller Seite</target></trans-unit>
+      <trans-unit id="extmng.categoryRestriction.siteroot" xml:space="preserve" approved="yes">
+<source>Categories from site root</source>
+<target state="final">Kategorien von Site-Root</target></trans-unit>
+      <trans-unit id="extmng.categoryRestriction.pages_tsconfig" xml:space="preserve" approved="yes">
+<source>Page TsConfig</source>
+<target state="final">Seiten-TSconfig</target></trans-unit>
+      <trans-unit id="extmng.categoryRestriction.none" xml:space="preserve" approved="yes">
+<source>No restriction</source>
+<target state="final">Keine Einschränkungen</target></trans-unit>
+      <trans-unit id="tcarecords-pages-contains.cart_products" approved="yes">
+        <source>Cart: Products</source>
+        <target state="final">Cart: Produkte</target>
+      </trans-unit>
+      <trans-unit id="flexforms_template.templateLayout" approved="yes">
+        <source>Template Layout</source>
+        <target state="final">Template-Layout</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts.module.main" approved="yes">
+        <source>Shopping Cart</source>
+        <target state="final">Warenkorb</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts.module.products" approved="yes">
+        <source>Products</source>
+        <target state="final">Produkte</target>
+      </trans-unit>
+      <trans-unit id="pages.singleview_cart_products_product" approved="yes">
+        <source>Product of this Page</source>
+        <target state="final">Produkt dieser Seite</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts.plugin.single_product.title" approved="yes">
+        <source>Cart: Single Product</source>
+        <target state="final">Cart: Einzelprodukt</target>
+      </trans-unit>
+      <trans-unit id="pages.doktype.182" approved="yes">
+        <source>Cart: Products</source>
+        <target state="final">Cart: Produkte</target>
+      </trans-unit>
+      <trans-unit id="pages.doktype.183" approved="yes">
+        <source>Cart: Product</source>
+        <target state="final">Cart: Produkt</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

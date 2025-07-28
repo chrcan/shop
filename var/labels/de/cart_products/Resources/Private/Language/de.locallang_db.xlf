@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2019-11-21T00:45:00Z" product-name="cart_products" target-language="de">
+    <header/>
+    <body>
+      <trans-unit id="tx_cartproducts.typoscript.default_configuration" approved="yes">
+        <source>Shopping Cart - Example Configuration</source>
+        <target state="final">Shopping Cart - Beispielkonfiguration</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts.flexform.productId" approved="yes">
+        <source>Product Id</source>
+        <target state="final">Produkt ID</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts.flexform.cartPageId" approved="yes">
+        <source>Cart Page Id</source>
+        <target state="final">Warenkorb SeitenID</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts.flexform.seller.email_from_address" approved="yes">
+        <source>Sender email address for email to the Seller</source>
+        <target state="final">Absender-E-Mail-Adresse für E-Mail an den Verkäufer</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts.flexform.seller.email_to_address" approved="yes">
+        <source>Receiver email address for email to the Seller</source>
+        <target state="final">Empfänger-E-Mail-Adresse für E-Mail an den Verkäufer</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts.flexform.buyer.email_from_address" approved="yes">
+        <source>Sender email address for email to the Buyer</source>
+        <target state="final">Absender-E-Mail-Adresse für E-Mail an den Käufer</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Titel</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.sku" approved="yes">
+        <source>SKU</source>
+        <target state="final">Artikelnummer</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.path_segment" approved="yes">
+        <source>URL segment</source>
+        <target state="final">URL Segment</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.is_net_price" approved="yes">
+        <source>Price (net)</source>
+        <target state="final">Preis (netto)</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.price" approved="yes">
+        <source>Price</source>
+        <target state="final">Preis</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.special_prices" approved="yes">
+        <source>Special Prices</source>
+        <target state="final">Spezialpreise</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.quantity_discounts" approved="yes">
+        <source>Quantity Discount</source>
+        <target state="final">Mengenrabatt</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.is_net_price" approved="yes">
+        <source>Is Net Price</source>
+        <target state="final">Preis (netto)</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.attributes" approved="yes">
+        <source>Additional Attributes</source>
+        <target state="final">Zusätzliche Attribute</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.div.descriptions" approved="yes">
+        <source>Description</source>
+        <target state="final">Beschreibung</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.div.images_and_files" approved="yes">
+        <source>Images / Files</source>
+        <target state="final">Bilder / Dateien</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.div.prices" approved="yes">
+        <source>Prices</source>
+        <target state="final">Preise</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.div.measures" approved="yes">
+        <source>Measures</source>
+        <target state="final">Maßangaben</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.div.variants" approved="yes">
+        <source>Variants</source>
+        <target state="final">Varianten</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.div.related_products" approved="yes">
+        <source>Related Products</source>
+        <target state="final">Verwandte Produkte</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.div.tags_categories" approved="yes">
+        <source>Tags and Categories</source>
+        <target state="final">Tags und Kategorien</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.div.stock" approved="yes">
+        <source>Stock</source>
+        <target state="final">Lagerbestand</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.palette.prices" approved="yes">
+        <source>Prices</source>
+        <target state="final">Preise</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.palette.measures" approved="yes">
+        <source>Measures</source>
+        <target state="final">Maßangaben</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.palette.service_attributes" approved="yes">
+        <source>Service Attributes</source>
+        <target state="final">Service Attribute</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product" approved="yes">
+        <source>Product</source>
+        <target state="final">Produkt</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.product_type" approved="yes">
+        <source>Type</source>
+        <target state="final">Typ</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.product_type.simple" approved="yes">
+        <source>simple</source>
+        <target state="final">einfach</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.product_type.configurable" approved="yes">
+        <source>configurable</source>
+        <target state="final">konfigurierbar</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.product_type.virtual" approved="yes">
+        <source>virtual</source>
+        <target state="final">virtuell</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.product_type.downloadable" approved="yes">
+        <source>downloadable</source>
+        <target state="final">herunterladbar</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.sku" approved="yes">
+        <source>SKU</source>
+        <target state="final">Artikelnummer</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Titel</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.teaser" approved="yes">
+        <source>Teaser</source>
+        <target state="final">Teaser</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.description" approved="yes">
+        <source>Description</source>
+        <target state="final">Beschreibung</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.product_content" approved="yes">
+        <source>Content</source>
+        <target state="final">Inhalt</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.min_number_in_order" approved="yes">
+        <source>Minimum numbers of product items per order</source>
+        <target state="final">Minimale Anzahl an Produkten in einer Bestellung</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.max_number_in_order" approved="yes">
+        <source>Maximum number of product items per order</source>
+        <target state="final">Maximale Anzahl an Produkten in einer Bestellung</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.price" approved="yes">
+        <source>Price</source>
+        <target state="final">Preis</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.price_measure" approved="yes">
+        <source>Price Measure</source>
+        <target state="final">Messwert</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.price_measure_unit" approved="yes">
+        <source>Price Measure Unit</source>
+        <target state="final">Messeinheit</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.base_price_measure_unit" approved="yes">
+        <source>Base Price Measure Unit</source>
+        <target state="final">Grundmesseinheit</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.measure.no_measuring_unit" approved="yes">
+        <source>No Measuring Unit</source>
+        <target state="final">keine Meßeinheit</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.measure.weight" approved="yes">
+        <source>Weight</source>
+        <target state="final">Gewicht</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.measure.volume" approved="yes">
+        <source>Volume</source>
+        <target state="final">Volumen</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.measure.length" approved="yes">
+        <source>Length</source>
+        <target state="final">Länge</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.measure.area" approved="yes">
+        <source>Area</source>
+        <target state="final">Fläche</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.service_attribute1" approved="yes">
+        <source>Attribute 1</source>
+        <target state="final">Attribut 1</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.service_attribute2" approved="yes">
+        <source>Attribute 2</source>
+        <target state="final">Attribut 2</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.service_attribute3" approved="yes">
+        <source>Attribute 3</source>
+        <target state="final">Attribut 3</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.tax_class" approved="yes">
+        <source>Tax Class</source>
+        <target state="final">Steuerklasse</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.be_variants" approved="yes">
+        <source>Backend Variants</source>
+        <target state="final">Backend Varianten</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.be_variant_attributes" approved="yes">
+        <source>Backend Variant Attributes</source>
+        <target state="final">Backend Variant Attribute</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.be_variant_attribute1" approved="yes">
+        <source>Backend Variant Attribute 1</source>
+        <target state="final">Backend Variant Attribut 1</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.be_variant_attribute2" approved="yes">
+        <source>Backend Variant Attribute 2</source>
+        <target state="final">Backend Variant Attribut 2</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.be_variant_attribute3" approved="yes">
+        <source>Backend Variant Attribute 3</source>
+        <target state="final">Backend Variant Attribut 3</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.fe_variants" approved="yes">
+        <source>Frontend Variants</source>
+        <target state="final">Frontend Varianten</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.related_products" approved="yes">
+        <source>Related Products</source>
+        <target state="final">Verwandte Produkte</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.related_products_from" approved="yes">
+        <source>Related Products (from)</source>
+        <target state="final">Verwandte Produkte (von)</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.images" approved="yes">
+        <source>Images</source>
+        <target state="final">Bilder</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.files" approved="yes">
+        <source>Files</source>
+        <target state="final">Dateien</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.handle_stock" approved="yes">
+        <source>Stock handling</source>
+        <target state="final">Lagerbestand verwalten</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.handle_stock_in_variants" approved="yes">
+        <source>Stock handling in variants</source>
+        <target state="final">Lagerbestand in den Varianten verwalten</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.stock" approved="yes">
+        <source>Stock</source>
+        <target state="final">Lagerbestand</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.category" approved="yes">
+        <source>Main Category</source>
+        <target state="final">Hauptkategorie</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.categories" approved="yes">
+        <source>Associated Categories</source>
+        <target state="final">Assoziierte Kategorien</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_product.tags" approved="yes">
+        <source>Tags</source>
+        <target state="final">Schlagworte</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_taxclass" approved="yes">
+        <source>Tax Class</source>
+        <target state="final">Steuerklasse</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_taxclass.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Titel</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_taxclass.value" approved="yes">
+        <source>Value</source>
+        <target state="final">Wert</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_taxclass.calc" approved="yes">
+        <source>Calc</source>
+        <target state="final">mathematischer Wert</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariantattribute" approved="yes">
+        <source>Backend Variant Attribute</source>
+        <target state="final">Backend Variant Attribute</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariantattribute.sku" approved="yes">
+        <source>SKU</source>
+        <target state="final">Artikelnummer</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariantattribute.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Titel</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariantattribute.description" approved="yes">
+        <source>Description</source>
+        <target state="final">Beschreibung</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariantattribute.be_variant" approved="yes">
+        <source>Backend Variant</source>
+        <target state="final">Backend Variante</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariantattribute.be_variant_attribute_options" approved="yes">
+        <source>Backend Variant Attribute Options</source>
+        <target state="final">Backend Variant Attribut Optionen</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariantattributeoption" approved="yes">
+        <source>Backend Variant Attribute Option</source>
+        <target state="final">Backend Variant Attribut Option</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariantattributeoption.sku" approved="yes">
+        <source>SKU</source>
+        <target state="final">Artikelnummer</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariantattributeoption.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Titel</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariantattributeoption.description" approved="yes">
+        <source>Description</source>
+        <target state="final">Beschreibung</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariant.palette.variants" approved="yes">
+        <source>Variants</source>
+        <target state="final">Varianten</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariant" approved="yes">
+        <source>Backend Variant</source>
+        <target state="final">Backend Variante</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariant.be_variant_attribute_option1" approved="yes">
+        <source>Backend Variant Attribute Option 1</source>
+        <target state="final">Backend Varianten Attribut Option 1</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariant.be_variant_attribute_option2" approved="yes">
+        <source>Backend Variant Attribute Option 2</source>
+        <target state="final">Backend Varianten Attribut Option 2</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariant.be_variant_attribute_option3" approved="yes">
+        <source>Backend Variant Attribute Option 3</source>
+        <target state="final">Backend Varianten Attribut Option 3</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariant.stock" approved="yes">
+        <source>Stock</source>
+        <target state="final">Lagerbestand</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariant.price_calc_method" approved="yes">
+        <source>Price Calc Method</source>
+        <target state="final">Preisberechnungsmethode</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariant.price_calc_method.0" approved="yes">
+        <source>0: Product Price</source>
+        <target state="final">0: Produktpreis</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariant.price_calc_method.1" approved="yes">
+        <source>1: Variant Price</source>
+        <target state="final">1: Variantenpreis</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariant.price_calc_method.2" approved="yes">
+        <source>2: Product Price - Variant Price</source>
+        <target state="final">2: Produktpreis - Variantenpreis</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariant.price_calc_method.3" approved="yes">
+        <source>3: Product Price - (Variant Price %)</source>
+        <target state="final">3: Produktpreis - (Variantenpreis %)</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariant.price_calc_method.4" approved="yes">
+        <source>4: Product Price + Variant Price</source>
+        <target state="final">4: Produktpreis + Variantenpreis</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_bevariant.price_calc_method.5" approved="yes">
+        <source>5: Product Price + (Variant Price %)</source>
+        <target state="final">5: Produktpreis + (Variantenpreis %)</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_fevariant" approved="yes">
+        <source>Frontend Variant</source>
+        <target state="final">Frontend Variante</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_fevariant.is_required" approved="yes">
+        <source>is Required</source>
+        <target state="final">Pflichtfeld</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_fevariant.sku" approved="yes">
+        <source>SKU</source>
+        <target state="final">Artikelnummer</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_fevariant.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Titel</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_specialprice" approved="yes">
+        <source>Special Price</source>
+        <target state="final">Spezialpreis</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_specialprice.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Titel</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_specialprice.frontend_user_group" approved="yes">
+        <source>Website Usergroup</source>
+        <target state="final">Website-Benutzergruppe</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_specialprice.price" approved="yes">
+        <source>Price</source>
+        <target state="final">Preis</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_quantitydiscount" approved="yes">
+        <source>Quantity Discount</source>
+        <target state="final">Staffelpreis</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_quantitydiscount.frontend_user_group" approved="yes">
+        <source>Website Usergroup</source>
+        <target state="final">Website-Benutzergruppe</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_quantitydiscount.price" approved="yes">
+        <source>Price</source>
+        <target state="final">Preis</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_product_quantitydiscount.quantity" approved="yes">
+        <source>Quantity (lower bound)</source>
+        <target state="final">Anzahl (untere Grenze)</target>
+      </trans-unit>
+      <trans-unit id="tx_cartproducts_domain_model_category.cart_product_image" approved="yes">
+        <source>Cart: Product Category Image</source>
+        <target state="final">Cart: Prdduktkategoriebild</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

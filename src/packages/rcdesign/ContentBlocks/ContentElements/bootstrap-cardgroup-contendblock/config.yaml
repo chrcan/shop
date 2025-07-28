@@ -1,0 +1,43 @@
+name: rcdesign/bootstrap-cardgroup-contentblock
+fields:
+  - identifier: header
+    useExistingField: true
+  - identifier: settings
+    type: FlexForm
+    fields:
+      - identifier: row_items
+        type: Select
+        renderType: selectSingle
+        items:
+          - label: '1'
+            value: 'row-cols-1 row-cols-md-1'
+          - label: '2'
+            value: 'row-cols-1 row-cols-md-2'
+          - label: '3'
+            value: 'row-cols-1 row-cols-md-3'
+          - label: '4'
+            value: 'row-cols-1 row-cols-md-4'
+  - identifier: card_group_item
+    type: Collection
+    labelField: title
+    minitems: 1
+    fields:
+      - identifier: image
+        type: File
+      - identifier: title
+        type: Text
+      - identifier: bodytext
+        type: Textarea
+        enableRichtext: true
+      - identifier: palette_link
+        type: Palette
+        fields:
+          - identifier: link
+            type: Link
+            allowedTypes:
+              - page
+              - url
+              - file
+          - identifier: link_title
+            type: Text
+            eval: 'trim'

@@ -1,0 +1,10 @@
+lib.miniCart = COA_INT
+lib.miniCart {
+    10 = USER_INT
+    10 {
+        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+        extensionName = Cart
+        pluginName = MiniCart
+        vendorName = Extcode
+    }
+}

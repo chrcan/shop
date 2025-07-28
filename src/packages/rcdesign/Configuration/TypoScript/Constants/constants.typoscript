@@ -1,0 +1,22 @@
+styles.content.textmedia.linkWrap.lightboxEnabled = 1
+styles.content.textmedia.linkWrap.width = 1400m
+styles.content.textmedia.linkWrap.height = 1400m
+styles.content.textmedia.maxW = 800
+styles.content.textmedia.maxWInText = 800
+styles.content.defaultHeaderType = 3
+
+plugin.tx_cars.persistence.storagePid = 16
+
+rcDesign {
+    siteLogo = EXT:rcdesign/Resources/Public/Images/typo3.svg
+    siteTitle = Titel der Homepage
+    siteLogoRC = EXT:rcdesign/Resources/Public/Images/rcdesign.png
+    rcUrl = https://rc-design.at
+    fbUrl = https://www.facebook.com
+    fbImage = EXT:rcdesign/Resources/Public/Images/icon-2.png
+    rootId =  1
+    metaNavId = 10
+    #searchId = 19
+    #mailAdresse = office@ifbbaustria.at?subject='Anfrage von Homepage'
+    #mailAdresse = office@ifbbaustria.at?subject='Anfrage%20von%20Homepage'
+}

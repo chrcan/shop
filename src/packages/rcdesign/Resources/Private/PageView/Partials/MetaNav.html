@@ -1,0 +1,16 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:spaceless>
+
+  <f:if condition="{metaNav}">
+    <ul class="marked-list">
+      <f:for each="{metaNav}" as="metaNavItem">
+        <li class="meta {f:if(condition:'{metaNavItem.active}', then: ' menu-active')}">
+          <a href="{metaNavItem.link}">{metaNavItem.title}</a>
+        </li>
+      </f:for>
+    </ul>
+  </f:if>
+
+</f:spaceless>
+
+</html>

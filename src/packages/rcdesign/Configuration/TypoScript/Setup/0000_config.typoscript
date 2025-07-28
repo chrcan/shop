@@ -1,0 +1,34 @@
+config {
+    contentObjectExceptionHandler = 1
+
+    #baseUrlOn = 1
+    #baseURL = https://malereieberl.ddev.site/
+
+    spamProtectEmailAddresses = -5
+
+    compressCss = 1
+    concatenateCss = 1
+    compressJs = 1
+    concatenateJs = 1
+
+headerComment (
+**********************************************************************************
+
+Website Development by rc design visual concepts
+A-5724 Stuhlfelden, Heilbad 1, werbegrafik@rc-design.at, Tel. +43-6562-48623
+Your Internet Partner for TYPO3 Projects
+Further information at: www.rc-design.at | werbegrafik@rc-design.at
+
+**********************************************************************************
+)
+}
+[applicationContext matches "/^Development/"]
+  config {
+    #index_enable = 1
+    contentObjectExceptionHandler = 0
+    compressCss = 0
+    concatenateCss = 0
+    compressJs = 0
+    concatenateJs = 0
+  }
+[END]

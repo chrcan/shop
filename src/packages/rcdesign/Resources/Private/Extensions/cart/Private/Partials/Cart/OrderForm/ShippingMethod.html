@@ -1,0 +1,47 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:cart="http://typo3.org/ns/Extcode/Cart/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:asset.script identifier="update-payment-shipping" src="EXT:cart/Resources/Public/JavaScript/update_payment_shipping.js" />
+
+<div id="checkout-step-shipping-method" class="checkout-step bg-light-grey bottom-buffer">
+    <h5 class="checkout-step-title">
+        <span class="checkout-step-number"></span>
+        <span><f:translate key="tx_cart.controller.order.action.show_cart.block-header.shipping_method"/></span>
+    </h5>
+    <div class="checkout-step-content">
+        <fieldset>
+            <div class="method-list checkout-step-content-list">
+                <f:for each="{shippings}" as="shipping">
+                    <f:if condition="{shipping.available}">
+                        <div class="method-item-name">
+                            <f:if condition="{0: shipping.id} == {0: cart.shipping.id}">
+                                <f:then>
+                                    {shipping.name}
+                                </f:then>
+                                <f:else>
+                                    <f:link.action controller="Cart\Shipping"
+                                                   action="update"
+                                                   arguments="{shippingId:shipping.id}"
+                                                   pageType="2278001"
+                                                   class="set-shipping">
+                                        {shipping.name}
+                                    </f:link.action>
+                                </f:else>
+                            </f:if>
+                        </div>
+                        <div class="method-item-info">
+                            <cart:format.currency currencySign="{cart.currencySign}">
+                                <f:if condition="{cart.netCart}">
+                                    <f:then>{shipping.net}</f:then>
+                                    <f:else>{shipping.gross}</f:else>
+                                </f:if>
+                            </cart:format.currency>
+                        </div>
+                    </f:if>
+                </f:for>
+            </div>
+        </fieldset>
+    </div>
+</div>
+</html>

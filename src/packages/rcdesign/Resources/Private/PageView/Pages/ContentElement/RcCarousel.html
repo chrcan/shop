@@ -1,0 +1,45 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+<f:if condition="{records}">
+  <div id="carousel-{data.uid}" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Carousel Indicators (should be outside the loop) -->
+    <div class="carousel-indicators">
+      <f:for each="{records}" as="item" iteration="iterator">
+        <button type="button" data-bs-target="#carousel-{data.uid}" data-bs-slide-to="{iterator.index}"
+          class="{f:if(condition: iterator.isFirst, then: 'active')}" aria-label="Slide {iterator.cycle}">
+        </button>
+      </f:for>
+    </div>
+
+    <!-- Carousel Items -->
+    <div class="carousel-inner">
+      <f:for each="{records}" as="item" iteration="iterator">
+        <div class="carousel-item {f:if(condition: iterator.isFirst, then: 'active')}">
+          <f:if condition="{item.files}">
+            <f:for each="{item.files}" as="file">
+              <f:media file="{file}" class="w-200" loading="lazy" width="auto" fileExtension="webp" />
+            </f:for>
+          </f:if>
+
+          <div class="carousel-caption d-none d-md-block">
+            <h5>{item.data.header}</h5>
+            <f:format.raw>{item.data.bodytext}</f:format.raw>
+          </div>
+        </div>
+      </f:for>
+    </div>
+
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{data.uid}" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel-{data.uid}" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</f:if>
+
+</html>

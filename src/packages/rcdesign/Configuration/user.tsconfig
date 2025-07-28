@@ -1,0 +1,21 @@
+options{
+    clearCache.pages = 1
+    clearCache.system = 1
+    clearCache.all = 1
+    pageTree {
+        showPageIdWithTitle = 1
+        backgroundColor.2 = #f12365
+        label.25 {
+          label = A
+          color = rgba(0,255,0,0.5)
+        }
+        label.5 {
+          label = B
+          color = rgba(255,255,0)
+        }
+        label.6 {
+          label = C
+          color = rgba(255,127,0)
+        }
+    }
+}

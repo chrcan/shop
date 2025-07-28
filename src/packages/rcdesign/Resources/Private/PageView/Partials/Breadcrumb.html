@@ -1,0 +1,32 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:spaceless>
+
+    <nav class="breadcrumbRC" aria-label="breadcrumb">
+        <f:if condition="{rootline} && {data.uid} != {settings.rootId}">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <f:for each="{rootline}" as="item">
+                        <f:if condition="{item.current}">
+                            <f:then>
+                                <li class="breadcrumb-item no">
+                                    {item.title}
+                                </li>
+                            </f:then>
+                            <f:else>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    <f:link.page pageUid="{item.data.uid}" title="{item.title}" target="{item.target}">
+                                        {item.title ->
+                                        f:format.crop(maxCharacters: 20)}</f:link.page>
+                                </li>
+                            </f:else>
+                        </f:if>
+                    </f:for>
+                </ol>
+            </div>
+        </f:if>
+    </nav>
+
+
+</f:spaceless>
+
+</html>

@@ -1,0 +1,88 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:cart="http://typo3.org/ns/Extcode/Cart/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<tr class="summary-cart-price">
+    <td colspan="5">
+        <f:translate key="tx_cart_domain_model_order_item.cart_price"/>
+    </td>
+    <td>
+        <cart:format.currency currencySign="{orderItem.currency}">{orderItem.net}</cart:format.currency>
+    </td>
+    <td>
+        <cart:format.currency currencySign="{orderItem.currency}">{orderItem.gross}</cart:format.currency>
+    </td>
+    <f:for each="{orderItem.orderTax}" as="orderTax">
+        <td>
+            <cart:format.currency currencySign="{orderItem.currency}">{orderTax.tax}</cart:format.currency>
+        </td>
+    </f:for>
+</tr>
+
+<tr class="summary-shipping">
+    <td colspan="5">
+        <f:translate key="tx_cart_domain_model_order_item.order_shipping"/>
+        {orderItem.orderShipping.name}
+    </td>
+    <td>
+        <cart:format.currency currencySign="{orderItem.currency}">{orderItem.orderShipping.net}</cart:format.currency>
+    </td>
+    <td>
+        <cart:format.currency currencySign="{orderItem.currency}">{orderItem.orderShipping.gross}</cart:format.currency>
+    </td>
+    <f:for each="{orderItem.orderTotalTax}" as="orderTotalTax">
+        <td>
+            <f:if condition="{0: orderTotalTax.orderTaxClass.id} == {0: orderItem.orderShipping.orderTaxClass.id}">
+                <f:then>
+                    <cart:format.currency currencySign="{orderItem.currency}">{orderItem.orderShipping.orderTax.tax}</cart:format.currency>
+                </f:then>
+                <f:else>
+                    &nbsp;
+                </f:else>
+            </f:if>
+        </td>
+    </f:for>
+</tr>
+
+<tr class="summary-payment">
+    <td colspan="5">
+        <f:translate key="tx_cart_domain_model_order_item.order_payment"/>
+        {orderItem.orderPayment.name}
+    </td>
+    <td>
+        <cart:format.currency currencySign="{orderItem.currency}">{orderItem.orderPayment.net}</cart:format.currency>
+    </td>
+    <td>
+        <cart:format.currency currencySign="{orderItem.currency}">{orderItem.orderPayment.gross}</cart:format.currency>
+    </td>
+    <f:for each="{orderItem.orderTotalTax}" as="orderTotalTax">
+        <td>
+            <f:if condition="{0: orderTotalTax.orderTaxClass.id} == {0: orderItem.orderPayment.orderTaxClass.id}">
+                <f:then>
+                    <cart:format.currency currencySign="{orderItem.currency}">{orderItem.orderPayment.orderTax.tax}</cart:format.currency>
+                </f:then>
+                <f:else>
+                    &nbsp;
+                </f:else>
+            </f:if>
+        </td>
+    </f:for>
+</tr>
+
+<tr class="summary-total-price">
+    <td colspan="5">
+        <f:translate key="tx_cart_domain_model_order_item.cart_total_price"/>
+    </td>
+    <td>
+        <cart:format.currency currencySign="{orderItem.currency}">{orderItem.totalNet}</cart:format.currency>
+    </td>
+    <td>
+        <cart:format.currency currencySign="{orderItem.currency}">{orderItem.totalGross}</cart:format.currency>
+    </td>
+    <f:for each="{orderItem.orderTotalTax}" as="orderTotalTax">
+        <td>
+            <cart:format.currency currencySign="{orderItem.currency}">{orderTotalTax.tax}</cart:format.currency>
+        </td>
+    </f:for>
+</tr>
+</html>

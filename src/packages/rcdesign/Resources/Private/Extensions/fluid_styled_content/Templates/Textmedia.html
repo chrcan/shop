@@ -1,0 +1,155 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Header">
+
+    <f:if condition="{gallery.position.noWrap} != 1">
+        <f:render partial="Header/All" arguments="{_all}" />
+    </f:if>
+
+</f:section>
+<f:section name="Main">
+    <f:if condition="{data.layout}==700">
+        <f:then>
+
+            <div class="accordion" id="accordion{data.uid}">
+                <div class="accordion-item">
+
+                    <f:if condition="{data.frame_class} == 'show'">
+                        <f:then>
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse{data.uid}" aria-expanded="true"
+                                    aria-controls="collapse{data.uid}">
+                                    {data.header}
+                                </button>
+                            </h2>
+                            <div id="collapse{data.uid}" class="accordion-collapse collapse show"
+                                aria-labelledby="{data.uid}" data-bs-parent="#accordion{data.uid}">
+                                <div class="accordion-body">
+                                    <div
+                                        class="ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}">
+                                        <f:if condition="{gallery.position.vertical} != 'below'">
+                                            <f:render partial="Media/Gallery" arguments="{_all}" />
+                                        </f:if>
+
+                                        <f:if condition="{data.bodytext}">
+                                            <f:then>
+                                                <div class="ce-bodytext">
+                                                    <f:format.html>{data.bodytext}</f:format.html>
+                                                </div>
+                                            </f:then>
+                                            <f:else>
+                                                <f:if condition="{gallery.position.noWrap}">
+                                                    <f:if condition="{data.header}">
+                                                        <div class="ce-bodytext">
+                                                            <f:render partial="Header/All" arguments="{_all}" />
+                                                        </div>
+                                                    </f:if>
+                                                </f:if>
+                                            </f:else>
+                                        </f:if>
+                                        <f:if condition="{gallery.position.vertical} == 'below'">
+                                            <f:render partial="Media/Gallery" arguments="{_all}" />
+                                        </f:if>
+                                    </div>
+                                </div>
+                            </div>
+                        </f:then>
+
+                        <f:else>
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse{data.uid}" aria-expanded="false"
+                                    aria-controls="collapse{data.uid}">
+                                    {data.header}
+                                </button>
+                            </h2>
+
+                            <div id="collapse{data.uid}" class="accordion-collapse collapse"
+                                aria-labelledby="{data.uid}" data-bs-parent="#accordion{data.uid}">
+                                <div class="accordion-body">
+                                    <div
+                                        class="ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}">
+                                        <f:if condition="{gallery.position.vertical} != 'below'">
+                                            <f:render partial="Media/Gallery" arguments="{_all}" />
+                                        </f:if>
+
+                                        <f:if condition="{data.bodytext}">
+                                            <f:then>
+                                                <div class="ce-bodytext">
+                                                    <f:format.html>{data.bodytext}</f:format.html>
+                                                </div>
+                                            </f:then>
+                                            <f:else>
+                                                <f:if condition="{gallery.position.noWrap}">
+                                                    <f:if condition="{data.header}">
+                                                        <div class="ce-bodytext">
+                                                            <f:render partial="Header/All" arguments="{_all}" />
+                                                        </div>
+                                                    </f:if>
+                                                </f:if>
+                                            </f:else>
+                                        </f:if>
+                                        <f:if condition="{gallery.position.vertical} == 'below'">
+                                            <f:render partial="Media/Gallery" arguments="{_all}" />
+                                        </f:if>
+                                    </div>
+                                </div>
+                            </div>
+                        </f:else>
+
+                    </f:if>
+
+                    <f:comment>
+                        <f:if condition="{data.frame_class} == 'close'">
+                            <f:then>
+
+                            </f:then>
+                            <f:else>
+
+                            </f:else>
+                        </f:if>
+                    </f:comment>
+
+
+                </div>
+            </div>
+
+        </f:then>
+
+        <f:else>
+            <div
+                class="ce-textpic ce-{gallery.position.horizontal} ce-{gallery.position.vertical}{f:if(condition: gallery.position.noWrap, then: ' ce-nowrap')}">
+                <f:if condition="{gallery.position.vertical} != 'below'">
+                    <f:render partial="Media/Gallery" arguments="{_all}" />
+                </f:if>
+
+                <f:if condition="{data.bodytext}">
+                    <f:then>
+                        <div class="ce-bodytext">
+                            <f:if condition="{gallery.position.noWrap}">
+                                <f:render partial="Header/All" arguments="{_all}" />
+                            </f:if>
+                            <f:format.html>{data.bodytext}</f:format.html>
+                        </div>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{gallery.position.noWrap}">
+                            <f:if condition="{data.header}">
+                                <div class="ce-bodytext">
+                                    <f:render partial="Header/All" arguments="{_all}" />
+                                </div>
+                            </f:if>
+                        </f:if>
+                    </f:else>
+                </f:if>
+
+                <f:if condition="{gallery.position.vertical} == 'below'">
+                    <f:render partial="Media/Gallery" arguments="{_all}" />
+                </f:if>
+            </div>
+        </f:else>
+    </f:if>
+</f:section>
+
+</html>

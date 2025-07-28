@@ -1,0 +1,297 @@
+
+renderingOptions:
+  submitButtonLabel: Absenden
+type: Form
+identifier: Formular
+label: 'Formular'
+prototypeName: standard
+finishers:
+  -
+    options:
+      -
+        table: tt_address
+        mode: insert
+        databaseColumnMappings:
+          pid:
+            value: '9'
+        elements:
+          singleselect-2:
+            mapOnDatabaseColumn: gender
+          text-1:
+            mapOnDatabaseColumn: first_name
+          text-2:
+            mapOnDatabaseColumn: last_name
+          text-4:
+            mapOnDatabaseColumn: address
+          text-3:
+            mapOnDatabaseColumn: zip
+          text-5:
+            mapOnDatabaseColumn: city
+          telephone-1:
+            mapOnDatabaseColumn: phone
+          email-1:
+            mapOnDatabaseColumn: email
+          textarea-1:
+            mapOnDatabaseColumn: description
+    identifier: SaveToDatabase
+  -
+    options:
+      subject: 'Homepage Kontaktformular'
+      senderAddress: '{email-1}'
+      senderName: '{text-1} {text-2}'
+      format: html
+      attachUploads: false
+      recipients:
+        werbegrafik@rc-design.at: 'rc design visual concepts'
+      replyToRecipients:
+        werbegrafik@rc-design.at: 'rc design visual concepts'
+    identifier: EmailToSender
+  -
+    options:
+      message: 'Vielen Dank für Ihre Nachricht.Wir melden uns in Kürze per Mail!'
+      contentElementUid: ''
+    identifier: Confirmation
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: 'Previous step'
+      nextButtonLabel: 'Neue Seite'
+    type: Page
+    identifier: page-1
+    label: ''
+    renderables:
+      -
+        type: GridRow
+        identifier: gridrow-1
+        label: 'Grid: Row'
+        renderables:
+          -
+            properties:
+              options:
+                f: Frau
+                m: Herr
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '12'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+                  xxl:
+                    numbersOfColumnsToUse: '12'
+                  xl:
+                    numbersOfColumnsToUse: '12'
+              elementDescription: ''
+            type: SingleSelect
+            identifier: singleselect-2
+            label: Geschlecht
+            defaultValue: f
+          -
+            defaultValue: ''
+            type: Text
+            identifier: text-1
+            label: Vorname
+            properties:
+              fluidAdditionalAttributes:
+                required: required
+                placeholder: Vorname
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '12'
+                  md:
+                    numbersOfColumnsToUse: '6'
+                  sm:
+                    numbersOfColumnsToUse: '6'
+                  xs:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '12'
+                  xxl:
+                    numbersOfColumnsToUse: '12'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Text
+            identifier: text-2
+            label: Nachname
+            properties:
+              fluidAdditionalAttributes:
+                required: required
+                placeholder: Nachname
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+                  xxl:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Text
+            identifier: text-4
+            label: Straße
+            properties:
+              fluidAdditionalAttributes:
+                required: required
+                placeholder: Straße
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '2'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+                  xxl:
+                    numbersOfColumnsToUse: '6'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Text
+            identifier: text-3
+            label: PLZ
+            properties:
+              fluidAdditionalAttributes:
+                required: required
+                placeholder: PLZ
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+                  xxl:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Text
+            identifier: text-5
+            label: Ort
+            properties:
+              fluidAdditionalAttributes:
+                required: required
+                placeholder: Ort
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+                  xxl:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Telephone
+            identifier: telephone-1
+            label: Tel.
+            properties:
+              fluidAdditionalAttributes:
+                required: required
+                placeholder: Tel.
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '0'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '11'
+                  xxl:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+            validators:
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Email
+            identifier: email-1
+            label: Email
+            properties:
+              fluidAdditionalAttributes:
+                required: required
+                placeholder: Email
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '6'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+                  xxl:
+                    numbersOfColumnsToUse: '6'
+                  xl:
+                    numbersOfColumnsToUse: '6'
+            validators:
+              -
+                identifier: EmailAddress
+              -
+                identifier: NotEmpty
+          -
+            defaultValue: ''
+            type: Textarea
+            identifier: textarea-1
+            label: Nachricht
+            properties:
+              gridColumnClassAutoConfiguration:
+                viewPorts:
+                  lg:
+                    numbersOfColumnsToUse: '12'
+                  md:
+                    numbersOfColumnsToUse: '12'
+                  sm:
+                    numbersOfColumnsToUse: '12'
+                  xs:
+                    numbersOfColumnsToUse: '12'
+                  xxl:
+                    numbersOfColumnsToUse: '12'
+                  xl:
+                    numbersOfColumnsToUse: '12'
+              fluidAdditionalAttributes:
+                placeholder: Nachricht

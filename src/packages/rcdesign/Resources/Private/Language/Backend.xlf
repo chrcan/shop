@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2024-01-15T10:05:39Z"
+        product-name="rcdesign">
+        <header/>
+        <body>
+
+            <trans-unit id="rcdesign_rctab_title">
+                <source>RC Tab</source>
+            </trans-unit>
+            <trans-unit id="rcdesign_rctab_description">
+                <source>Toggle between hiding and showing content with tabs</source>
+            </trans-unit>
+
+            <trans-unit id="rcdesign_rccarousel_title">
+				<source>RC Carousel</source>
+			</trans-unit>
+            <trans-unit id="rccarousel_group_item">
+                <source>Carousel</source>
+            </trans-unit>
+            <trans-unit id="rccarousel_group_item.tt_content">
+                <source>Carousel Group</source>
+            </trans-unit>
+            <trans-unit id="rccarousel_group_item.header">
+                <source>Header</source>
+            </trans-unit>
+            <trans-unit id="rccarousel_group_item.image">
+                <source>Image</source>
+            </trans-unit>
+            <trans-unit id="rccarousel_group_item.bodytext">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="rccarousel_group_item.link">
+                <source>Link</source>
+            </trans-unit>
+            <trans-unit id="rccarousel_group_item.link_title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="rcdesign_rccarousel_description">
+                <source>Image Cauousel mit Caption und Text</source>
+            </trans-unit>
+
+			<trans-unit id="rcdesign_rccard_title">
+				<source>RC Card Element</source>
+			</trans-unit>
+            <trans-unit id="rccard_group_item">
+                <source>Card</source>
+            </trans-unit>
+            <trans-unit id="rccard_group_item.tt_content">
+                <source>Card Group</source>
+            </trans-unit>
+            <trans-unit id="rccard_group_item.header">
+                <source>Header</source>
+            </trans-unit>
+            <trans-unit id="rccard_group_item.image">
+                <source>Image</source>
+            </trans-unit>
+            <trans-unit id="rccard_group_item.bodytext">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="rccard_group_item.link">
+                <source>Link</source>
+            </trans-unit>
+            <trans-unit id="rccard_group_item.link_title">
+                <source>Title</source>
+            </trans-unit>
+
+			<trans-unit id="rcdesign_rcaccordion_title">
+                <source>RC Accordion</source>
+            </trans-unit>
+            <trans-unit id="rcdesign_rcaccordion_description">
+                <source>Insert several Accordionelement(s) with headline and text</source>
+            </trans-unit>
+			<trans-unit id="accordion.options">
+                <source>Accordion Options</source>
+            </trans-unit>
+            <trans-unit id="accordion.default_element">
+                <source>Default Element</source>
+            </trans-unit>
+            <trans-unit id="accordion_item">
+                <source>Accordion Item</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.tt_content">
+                <source>Accordion</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.header">
+                <source>Header</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.bodytext">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.media">
+                <source>Media</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaposition">
+                <source>Media position</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.imagecols">
+                <source>Columns</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.image_zoom">
+                <source>Enlarge on Click</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaorient">
+                <source>Orientation</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaorient.left">
+                <source>Left</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaorient.top">
+                <source>Top</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaorient.right">
+                <source>Right</source>
+            </trans-unit>
+            <trans-unit id="accordion_item.mediaorient.bottom">
+                <source>Bottom</source>
+            </trans-unit>
+
+			<trans-unit id="accordion_item.position1">
+                <source>Position 1</source>
+            </trans-unit>
+			<trans-unit id="accordion_item.position2">
+                <source>Position 2</source>
+            </trans-unit>
+			<trans-unit id="accordion_item.columnwidth1">
+                <source>Column width 1</source>
+            </trans-unit>
+			<trans-unit id="accordion_item.columnwidth2">
+                <source>Column width 2</source>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

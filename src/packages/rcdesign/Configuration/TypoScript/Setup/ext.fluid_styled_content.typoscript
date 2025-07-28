@@ -1,0 +1,6 @@
+lib.contentElement{
+    templateRootPaths.100 = EXT:rcdesign/Resources/Private/Extensions/fluid_styled_content/Templates/
+    partialRootPaths.100 = EXT:rcdesign/Resources/Private/Extensions/fluid_styled_content/Partials/
+}
+
+lib.contentElement.settings.media.popup.linkParams.ATagParams.dataWrap =  data-fslightbox="image-{field:uid}" data-type="image"

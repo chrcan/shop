@@ -1,0 +1,152 @@
+page = PAGE
+
+## Meta Tags
+page.meta {
+    viewport = width=device-width, initial-scale=1, shrink-to-fit=no
+    robots = INDEX,FOLLOW
+    description {
+        data = TSFE:page|description
+        ifEmpty (
+        Hier kommt die Beschreibung rein
+        )
+    }
+    keywords {
+        data = TSFE:page|keywords
+        keywords = 1
+        ifEmpty (
+        keywords, keywords....
+        )
+    }
+    X-UA-Compatible.httpEquivalent = 1
+}
+## Fav Icon
+page.shortcutIcon = EXT:rcdesign/Resources/Public/Icons/favicon/favicon.ico
+
+## CSS Datei einbinden
+page.includeCSS {
+    10 = EXT:rcdesign/Resources/Public/Css/bootstrap.min.5.3.7.css
+    20 = EXT:rcdesign/Resources/Public/Css/style.css
+    30 = EXT:rcdesign/Resources/Public/Fonts/bootstrappackageicon.css
+    40 = EXT:rcdesign/Resources/Public/Fonts/bootstrap-icons.5.3.7.css
+}
+
+page.includeJSLibs {
+    #10 = EXT:rcdesign/Resources/Public/JavaScript/jQuery/jquery-3.6.1.min.js
+    #10.disableCompression = 1
+}
+
+#page.includeJS {
+#    30 = EXT:rcdesign/Resources/Public/JavaScript/script.js
+#}
+
+page.includeJSFooter {
+    10 = EXT:rcdesign/Resources/Public/JavaScript/popper.min.js
+    10.disableCompression = 1
+    20 = EXT:rcdesign/Resources/Public/JavaScript/bootstrap.bundle.min.5.3.7.js
+    20.disableCompression = 1
+    //30 = EXT:rcdesign/Resources/Public/JavaScript/repeat.js
+    40 = EXT:rcdesign/Resources/Public/JavaScript/fslightbox_v3.3.3.js
+    40.disableCompression = 1
+}
+
+### body css class hinzufügen
+// page.bodyTag >
+// page.bodyTagCObject = TEXT
+// page.bodyTagCObject.value= d-flex flex-column h-100
+// page.bodyTagCObject.wrap = <body class="|">
+
+page.10 = FLUIDTEMPLATE
+page.10 {
+    layoutRootPath = EXT:rcdesign/Resources/Private/PageView/Layouts
+    partialRootPath = EXT:rcdesign/Resources/Private/PageView/Partials
+    // paths {
+    //     100 = EXT:rcdesign/Resources/Private/PageView/
+    // }
+    file.stdWrap.cObject = CASE
+    file.stdWrap.cObject {
+        key.data = pagelayout
+
+        pagets__Startseite = TEXT
+        pagets__Startseite.value = EXT:rcdesign/Resources/Private/PageView/Pages/Startseite.html
+
+        pagets__Unterseiten = TEXT
+        pagets__Unterseiten.value = EXT:rcdesign/Resources/Private/PageView/Pages/Unterseiten.html
+
+        default < .pagets__Unterseiten
+    }
+
+    variables {
+        content_0 < styles.content.get
+        // content_1 < styles.content.get
+        // content_1.select.where = colPos = 1
+        // content_2 < styles.content.get
+        // content_2.select.where = colPos = 2
+        // content_3 < styles.content.get
+        // content_3.select.where = colPos = 3
+        content_5 < styles.content.get
+        content_5 {
+        select.where = colPos=5
+        slide = -1
+        }
+        // mobilenav =< lib.menu
+        // navnormal =< lib.navi
+        // content_5 =< lib.slider
+    }
+    settings {
+        siteLogo = {$rcDesign.siteLogo}
+        siteTitle = {$rcDesign.siteTitle}
+        siteLogoRC = {$rcDesign.siteLogoRC}
+        rcUrl = {$rcDesign.rcUrl}
+        fbUrl = {$rcDesign.fbUrl}
+        fbImage = {$rcDesign.fbImage}
+        rootId = {$rcDesign.rootId}
+        metaNavId = {$rcDesign.metaNavId}
+    }
+
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        10 {
+            as = mainMenu
+            expandAll = 1
+            titleField = nav_title // title
+            levels = 6
+        }
+        ## MetaNav
+        20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        20 {
+            as = metaNav
+            titleField = nav_title // title
+            levels = 2
+            special = directory
+            special.value = {$rcDesign.metaNavId}
+        }
+        ## Rootline
+        30 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        30 {
+            as = rootline
+            special = rootline
+            special.range = 0|-1
+            titleField = nav_title // title
+            includeNotInMenu = 1
+        }
+    }
+}
+
+page.headerData {
+    1639581221 = COA
+    1639581221 {
+        10 = COA
+        10 {
+        1 < lib.rcfavicon.imageRes
+        1.file = EXT:rcdesign/Resources/Public/Icons/favicon/favicon.svg
+        1.stdWrap.wrap = <link rel="icon" type="image/svg+xml" href="|">
+        1.stdWrap.append = 13
+        2 < lib.rcfavicon.imageRes
+        2.file = EXT:rcdesign/Resources/Public/Icons/favicon/favicon.png
+        2.stdWrap.wrap = <link rel="icon" type="image/png" href="|">
+        }
+    }
+    110 = HTML
+    110.value = <link rel="alternate" type="application/rss+xml" title="RSS-Feed" href="https://www.svgrepo.com/svg/25140/rss">
+}
+

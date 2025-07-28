@@ -1,0 +1,109 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:if condition="{gallery.rows}">
+    <f:switch expression="{data.layout}">
+
+        <f:case value="200">
+            <f:comment>
+                <f:debug>{_all}</f:debug>
+            </f:comment>
+
+            <div class="card">
+                <f:for each="{files}" as="file">
+                    <f:image image="{file}" alt="{file.alternative}" class="card-img-top img-fluid"
+                        fileExtension="webp" />
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{file.link}">
+                                <f:format.raw value="{file.title}" />
+                            </a>
+                        </h5>
+                        <p class="card-text">
+                            <f:format.raw value="{file.description -> f:format.crop(maxCharacters: 110)}" />
+                        </p>
+                        <f:link.typolink class="btn btn-warning" parameter="{file.link}">
+                            <f:format.raw value="{file.alternative}" />
+                        </f:link.typolink>
+                    </div>
+                </f:for>
+            </div>
+        </f:case>
+
+        <f:case value="100">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
+                <f:comment>
+                    <f:debug>{files}</f:debug>
+                    <div class="carousel-indicators">
+                        <f:for each="{gallery}" as="slide">
+                            <button type="button" data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide-to="{slide.count.files}" class="active" aria-current="true"
+                                aria-label="Slide {slide.count.files}"></button>
+                        </f:for>
+
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                </f:comment>
+
+                <div class="carousel-inner">
+                    <f:for each="{files}" as="file" iteration="iterator">
+                        <div class="carousel-item{f:if(condition:iterator.isFirst, then: ' active')}">
+                            <f:image image="{file}" alt="{file.alternative}" class="d-block w-100"
+                                fileExtension="webp" />
+                            <div class="carousel-caption d-none d-md-block">
+                                <f:if condition="{file.alternative}">
+                                    <h5>{file.alternative}</h5>
+                                </f:if>
+                                <f:if condition="{file.description}">
+                                    <p>{file.description}</p>
+                                </f:if>
+                            </div>
+                        </div>
+                    </f:for>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </f:case>
+
+        <f:defaultCase>
+            <div class="ce-gallery{f:if(condition: data.imageborder, then: ' ce-border')}"
+                data-ce-columns="{gallery.count.columns}" data-ce-images="{gallery.count.files}">
+                <f:if condition="{gallery.position.horizontal} == 'center'">
+                    <div class="ce-outer">
+                        <div class="ce-inner">
+                </f:if>
+                <f:for each="{gallery.rows}" as="row">
+                    <div class="ce-row">
+                        <f:for each="{row.columns}" as="column">
+                            <f:if condition="{column.media}">
+                                <div class="ce-column">
+                                    <f:render partial="Media/Type"
+                                        arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
+                                </div>
+                            </f:if>
+                        </f:for>
+                    </div>
+                </f:for>
+                <f:if condition="{gallery.position.horizontal} == 'center'">
+            </div>
+            </div>
+</f:if>
+</div>
+</f:defaultCase>
+</f:switch>
+</f:if>
+
+</html>

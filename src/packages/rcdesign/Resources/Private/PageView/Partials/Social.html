@@ -1,0 +1,66 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>
+    <f:if condition="{theme.socialmedia.channels}">
+        <div class="sociallinks">
+            <ul class="sociallinks-list">
+                <f:for each="{theme.socialmedia.channels}" key="channelKey" as="channelOptions">
+                    <f:if condition="{channelOptions.url}">
+                        <li class="sociallinks-item sociallinks-item-{channelKey}" title="{channelOptions.label}">
+                            <a class="sociallinks-link sociallinks-link-{channelKey}" href="{channelOptions.url}"
+                                title="{channelOptions.label}" rel="noopener" target="_blank">
+                                <span
+                                    class="sociallinks-link-icon bootstrappackageicon bootstrappackageicon-{channelKey}"
+                                    aria-hidden="true"></span>
+                                <span class="sociallinks-link-label">{channelOptions.label}</span>
+                            </a>
+                        </li>
+                    </f:if>
+                </f:for>
+            </ul>
+        </div>
+    </f:if>
+</f:comment>
+
+<div class="sociallinks">
+    <ul class="sociallinks-list">
+
+        <li class="sociallinks-item sociallinks-item-facebook" title="Facebook">
+            <a class="sociallinks-link sociallinks-link-facebook" href="https://www.facebook.com/typo3/"
+                title="Facebook" rel="noopener" target="_blank">
+                <span class="sociallinks-link-icon bootstrappackageicon bootstrappackageicon-facebook"
+                    aria-hidden="true"></span>
+                <span class="sociallinks-link-label">Facebook</span>
+            </a>
+        </li>
+
+        <li class="sociallinks-item sociallinks-item-twitter" title="Twitter">
+            <a class="sociallinks-link sociallinks-link-twitter" href="https://twitter.com/typo3" title="Twitter"
+                rel="noopener" target="_blank">
+                <span class="sociallinks-link-icon bootstrappackageicon bootstrappackageicon-twitter"
+                    aria-hidden="true"></span>
+                <span class="sociallinks-link-label">Twitter</span>
+            </a>
+        </li>
+
+        <li class="sociallinks-item sociallinks-item-github" title="GitHub">
+            <a class="sociallinks-link sociallinks-link-github" href="https://github.com/TYPO3/TYPO3.CMS" title="GitHub"
+                rel="noopener" target="_blank">
+                <span class="sociallinks-link-icon bootstrappackageicon bootstrappackageicon-github"
+                    aria-hidden="true"></span>
+                <span class="sociallinks-link-label">GitHub</span>
+            </a>
+        </li>
+
+        <li class="sociallinks-item sociallinks-item-youtube" title="YouTube">
+            <a class="sociallinks-link sociallinks-link-youtube" href="https://www.youtube.com/user/typo3"
+                title="YouTube" rel="noopener" target="_blank">
+                <span class="sociallinks-link-icon bootstrappackageicon bootstrappackageicon-youtube"
+                    aria-hidden="true"></span>
+                <span class="sociallinks-link-label">YouTube</span>
+            </a>
+        </li>
+
+    </ul>
+</div>
+
+</html>

@@ -1,0 +1,125 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:form action="{action}" name="search" class="mb-2">
+    <div class="row">
+        <div class="form-group col col-sm-4">
+            <label for="searchCustomer" class="form-label">
+                <f:translate key="tx_cart.backend.filter.customer"/>
+            </label>
+            <f:form.textfield property="customer" id="searchCustomer"
+                              class="form-control"
+                              value="{searchArguments.customer}"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col col-sm-3">
+            <label for="searchOrderNumber" class="form-label">
+                <f:translate key="tx_cart.backend.filter.order_number"/>
+            </label>
+            <f:form.textfield property="orderNumber" id="searchOrderNumber"
+                              class="form-control"
+                              value="{searchArguments.orderNumber}"/>
+        </div>
+        <div class="form-group col col-sm-3">
+            <label for="searchOrderDateStart" class="form-label">
+                <f:translate key="tx_cart.backend.filter.start_date"/>
+            </label>
+            <f:form.textfield
+                    name="orderDateStart"
+                    id="searchOrderDateStart"
+                    value="{f:if(condition: searchArguments.orderDateStart, then: \" {f:format.date(format:'{settings.backend.dateFormat}', date: '{searchArguments.orderDateStart}')}\")}"
+                    additionalAttributes="{'autocomplete': 'off'}"
+                    class="form-control t3js-datetimepicker t3js-clearable"
+                    data="{date-type: 'date', date-format: '{settings.backend.dateFormat}'}"/>
+            <f:form.hidden
+                    property="orderDateStart"
+                    value="{f:if(condition: searchArguments.orderDateStart, then: \"{f:format.date(format:'c', date: '{searchArguments.orderDateStart}')}\")}"
+            />
+        </div>
+        <div class="form-group col col-sm-3">
+            <label for="searchOrderDateEnd" class="form-label">
+                <f:translate key="tx_cart.backend.filter.end_date"/>
+            </label>
+            <f:form.textfield
+                    name="orderDateEnd"
+                    id="searchOrderDateEnd"
+                    value="{f:if(condition: searchArguments.orderDateEnd, then: \" {f:format.date(format:'{settings.backend.dateFormat}', date: '{searchArguments.orderDateEnd}')}\")}"
+                    additionalAttributes="{'autocomplete': 'off'}"
+                    class="form-control t3js-datetimepicker t3js-clearable"
+                    data="{date-type: 'date'}"/>
+            <f:form.hidden
+                    property="orderDateEnd"
+                    value="{f:if(condition: searchArguments.orderDateEnd, then: \"{f:format.date(format:'c', date: '{searchArguments.orderDateEnd}')}\")}"
+            />
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col col-sm-3">
+            <label for="searchInvoiceNumber" class="form-label">
+                <f:translate key="tx_cart.backend.filter.invoice_number"/>
+            </label>
+            <f:form.textfield property="invoiceNumber" id="searchInvoiceNumber"
+                              class="form-control"
+                              value="{searchArguments.inoviceNumber}"/>
+        </div>
+        <div class="form-group col col-sm-3">
+            <label for="searchInvoiceDateStart" class="form-label">
+                <f:translate key="tx_cart.backend.filter.start_date"/>
+            </label>
+            <f:form.textfield
+                    name="searchInvoiceDateStart"
+                    id="invoiceDateStart"
+                    value="{f:if(condition: searchArguments.invoiceDateStart, then: \" {f:format.date(format:'{settings.backend.dateFormat}', date: '{searchArguments.invoiceDateStart}')}\")}"
+                    additionalAttributes="{'autocomplete': 'off'}"
+                    class="form-control t3js-datetimepicker t3js-clearable"
+                    data="{date-type: 'date'}"/>
+            <f:form.hidden
+                    property="invoiceDateStart"
+                    value="{f:if(condition: searchArguments.invoiceDateStart, then: \"{f:format.date(format:'c', date: '{searchArguments.invoiceDateStart}')}\")}"
+            />
+        </div>
+        <div class="form-group col col-sm-3">
+            <label for="searchInvoiceDateEnd" class="form-label">
+                <f:translate key="tx_cart.backend.filter.end_date"/>
+            </label>
+            <f:form.textfield
+                    name="invoiceDateEnd"
+                    id="searchInvoiceDateEnd"
+                    value="{f:if(condition: searchArguments.invoiceDateEnd, then: \" {f:format.date(format:'{settings.backend.dateFormat}', date: '{searchArguments.invoiceDateEnd}')}\")}"
+                    additionalAttributes="{'autocomplete': 'off'}"
+                    class="form-control t3js-datetimepicker t3js-clearable"
+                    data="{date-type: 'date'}"/>
+            <f:form.hidden
+                    property="invoiceDateEnd"
+                    value="{f:if(condition: searchArguments.invoiceDateEnd, then: \"{f:format.date(format:'c', date: '{searchArguments.invoiceDateEnd}')}\")}"
+            />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-sm-3">
+            <label for="searchPaymentStatus" class="form-label">
+                <f:translate key="tx_cart_domain_model_order_payment"/>
+                <f:translate key="tx_cart_domain_model_order_payment.status"/>
+            </label>
+            <f:form.select id="searchPaymentStatus" class="form-select" property="paymentStatus"
+                           options="{paymentStatus}" optionValueField="key" optionLabelField="value"
+                           value="{searchArguments.paymentStatus}"/>
+        </div>
+        <div class="col col-sm-3">
+            <label for="searchShippingStatus" class="form-label">
+                <f:translate key="tx_cart_domain_model_order_shipping"/>
+                <f:translate key="tx_cart_domain_model_order_shipping.status"/>
+            </label>
+            <f:form.select id="searchShippingStatus" class="form-select" property="shippingStatus"
+                           options="{shippingStatus}" optionValueField="key" optionLabelField="value"
+                           value="{searchArguments.paymentStatus}"/>
+        </div>
+    </div>
+    <f:form.submit value="{f:translate(key: 'tx_cart.backend.filter')}" class="my-3 btn btn-default"/>
+</f:form>
+</html>

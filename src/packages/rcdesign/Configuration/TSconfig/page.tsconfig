@@ -1,0 +1,129 @@
+TCEMAIN.table.pages {
+  disablePrependAtCopy = 1
+  disableHideAtCopy = 1
+}
+TCEMAIN.table.tt_content {
+  disablePrependAtCopy = 1
+  disableHideAtCopy = 1
+}
+
+TCEFORM.tt_content.header_layout {
+    altLabels {
+        0 = h3 - H3 Überschrift
+        1 = h1 - H1 Seitenüberschrift
+        2 = h3 - h3 - StandartÜberschrift
+        3 = h2 - Überschrift 2. Ordnung
+        4 = h4 - Überschrift 4. Ordnung
+        5 = h5 - Überschrift 5. Ordnung
+    }
+    addItems.10 = h3 - IFBB Schatten
+    removeItems = 1,2,5
+}
+
+TCEFORM.tt_content.layout.addItems {
+    5 = Responsive Video
+}
+
+TCEFORM.tt_content.layout.types.textmedia.addItems {
+    100 = Image Slider
+}
+
+TCEFORM.tt_content.layout.types.textmedia.addItems {
+    200 = Card
+}
+
+## accordion nur für Text & Media ###############
+TCEFORM.tt_content.layout {
+    addItems.700 = Accordeon
+}
+TCEFORM.tt_content.frame_class.types.textmedia {
+    addItems {
+        show = Akkordeon offen
+        close = Akkordeon geschloßen
+        normal = Akkordeon
+    }
+}
+
+## RTE
+#RTE.default.preset = rcdesign
+#RTE.default.preset = rcdesign
+RTE.default.preset = BootstrapRTE
+
+## News
+// tx_news.templateLayouts {
+//   1 = News Normale Ausgabe
+//   2 = News Slider
+//   3 = News ICS
+// }
+
+// Eigene CType RC Carousel erstellen
+mod.wizards.newContentElement.wizardItems {
+  // add the content element to the tab "common"
+  common {
+    elements {
+      rcdesign_rctab {
+        iconIdentifier = content-tab
+        title = LLL:EXT:rcdesign/Resources/Private/Language/Backend.xlf:rcdesign_rctab_title
+        description = LLL:EXT:rcdesign/Resources/Private/Language/Backend.xlf:rcdesign_rctab_description
+        tt_content_defValues {
+          CType = rcdesign_rctab
+        }
+      }
+    }
+    show := addToList(rcdesign_rctab)
+  }
+}
+
+// Eigene CType RC Carousel erstellen
+mod.wizards.newContentElement.wizardItems {
+  // add the content element to the tab "common"
+  common {
+    elements {
+      rcdesign_rccarousel {
+        iconIdentifier = module-viewpage
+        title = LLL:EXT:rcdesign/Resources/Private/Language/Backend.xlf:rcdesign_rccarousel_title
+        description = LLL:EXT:rcdesign/Resources/Private/Language/Backend.xlf:rcdesign_rccarousel_description
+        tt_content_defValues {
+          CType = rcdesign_rccarousel
+        }
+      }
+    }
+    show := addToList(rcdesign_rccarousel)
+  }
+}
+
+// Eigene CType RC Card erstellen
+mod.wizards.newContentElement.wizardItems {
+  // add the content element to the tab "common"
+  common {
+    elements {
+      rcdesign_rccard {
+        iconIdentifier = content-card
+        title = LLL:EXT:rcdesign/Resources/Private/Language/Backend.xlf:rcdesign_rccard_title
+        description = LLL:EXT:rcdesign/Resources/Private/Language/Backend.xlf:rcdesign_rccard_description
+        tt_content_defValues {
+          CType = rcdesign_rccard
+        }
+      }
+    }
+    show := addToList(rcdesign_rccard)
+  }
+}
+
+// Eigene CType RC Accordion erstellen
+mod.wizards.newContentElement.wizardItems {
+  // add the content element to the tab "common"
+  common {
+    elements {
+      rcdesign_rcaccordion {
+        iconIdentifier = module-list
+        title = LLL:EXT:rcdesign/Resources/Private/Language/Backend.xlf:rcdesign_rcaccordion_title
+        description = LLL:EXT:rcdesign/Resources/Private/Language/Backend.xlf:rcdesign_rcaccordion_description
+        tt_content_defValues {
+          CType = rcdesign_rcaccordion
+        }
+      }
+    }
+    show := addToList(rcdesign_rcaccordion)
+  }
+}

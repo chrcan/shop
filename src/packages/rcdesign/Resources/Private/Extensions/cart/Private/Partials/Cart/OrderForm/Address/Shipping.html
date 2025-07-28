@@ -1,0 +1,663 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:cart="http://typo3.org/ns/Extcode/Cart/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:asset.script identifier="update-country" src="EXT:cart/Resources/Public/JavaScript/update_country.js" />
+<div hidden data-ajax-update-country-action-url="{f:uri.action(controller: 'Cart\Country', action: 'update', pageType: '2278001') -> f:format.raw()}"></div>
+
+<div class="form-list shipping-same-as-billing-wrapper">
+    <div class="control">
+        <label for="shipping-same-as-billing">
+            <f:form.checkbox property="shippingSameAsBilling"
+                             id="shipping-same-as-billing"
+                             value="1"
+                             title="{f:translate(key:'tx_cart.same_address')}"
+                             checked="{f:if(condition:'{cart.shippingSameAsBilling}', then: 'true', else: 'false')}"/>
+            <span><f:translate key="tx_cart.same_address"/></span>
+        </label>
+    </div>
+</div>
+
+<div id="checkout-step-shipping-address" class="checkout-step bg-light-grey" style="{f:if(condition:'{cart.shippingSameAsBilling}', then:'display: none;')}" data-ajax-country data-ajax-currency>
+    <h5 class="checkout-step-title">
+        <span class="checkout-step-number"></span>
+        <span><f:translate key="tx_cart.controller.order.action.show_cart.block-header.shipping_address"/></span>
+    </h5>
+    <div class="checkout-step-content">
+        <fieldset>
+            <div class="checkout-step-content-list">
+                <div class="checkout-step-fields">
+                    <f:if condition="{0: settings.validation.shippingAddress.fields.salutation.validator} != {0: 'Empty'}">
+                        <div class="field salutation">
+                            <f:if condition="{0: settings.validation.shippingAddress.fields.salutation.validator} == {0: 'NotEmpty'}">
+                                <f:then>
+                                    <label for="shippingAddress-salutation" class="required">
+                                        <f:translate key="tx_cart_domain_model_order_address.salutation"/>
+                                        <em>*</em>
+                                    </label>
+                                    <div class="input-box">
+                                        <f:form.textfield id="shippingAddress-salutation"
+                                                          class="form-control"
+                                                          name="shippingAddress[salutation]"
+                                                          value="{shippingAddress.salutation}"
+                                                          required="true"
+                                                          disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                          data="{disable-shipping:'true'}"/>
+                                        <f:form.validationResults for="shippingAddress">
+                                            <f:if condition="{validationResults.flattenedErrors.salutation}">
+                                                <div class="validation-error alert alert-danger">{validationResults.flattenedErrors.salutation.0.message}</div>
+                                            </f:if>
+                                        </f:form.validationResults>
+                                   </div>
+                                </f:then>
+                                <f:else>
+                                    <label for="shippingAddress-salutation" class="required">
+                                        <f:translate key="tx_cart_domain_model_order_address.salutation"/>
+                                    </label>
+                                    <div class="input-box">
+                                        <f:form.textfield id="shippingAddress-salutation"
+                                                          class="form-control"
+                                                          name="shippingAddress[salutation]"
+                                                          value="{shippingAddress.salutation}"
+                                                          disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                          data="{disable-shipping:'true'}"/>
+                                    </div>
+                                </f:else>
+                            </f:if>
+                        </div>
+                    </f:if>
+
+                    <f:if condition="{0: settings.validation.shippingAddress.fields.title.validator} != {0: 'Empty'}">
+                        <div class="field title">
+                            <f:if condition="{0: settings.validation.shippingAddress.fields.title.validator} == {0: 'NotEmpty'}">
+                                <f:then>
+                                    <label for="shippingAddress-title" class="required">
+                                        <f:translate key="tx_cart_domain_model_order_address.title"/>
+                                        <em>*</em>
+                                    </label>
+                                    <div class="input-box">
+                                        <f:form.textfield id="shippingAddress-title"
+                                                          class="form-control"
+                                                          name="shippingAddress[title]"
+                                                          value="{shippingAddress.title}"
+                                                          required="true"
+                                                          disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                          data="{disable-shipping:'true'}"/>
+                                        <f:form.validationResults for="shippingAddress">
+                                            <f:if condition="{validationResults.flattenedErrors.title}">
+                                                <div class="validation-error alert alert-danger">{validationResults.flattenedErrors.title.0.message}</div>
+                                            </f:if>
+                                        </f:form.validationResults>
+                                    </div>
+                                </f:then>
+                                <f:else>
+                                    <label for="shippingAddress-title">
+                                        <f:translate key="tx_cart_domain_model_order_address.title"/>
+                                    </label>
+                                    <div class="input-box">
+                                        <f:form.textfield id="shippingAddress-title"
+                                                          class="form-control"
+                                                          name="shippingAddress[title]"
+                                                          value="{shippingAddress.title}"
+                                                          disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                          data="{disable-shipping:'true'}"/>
+                                    </div>
+                                </f:else>
+                            </f:if>
+                        </div>
+                    </f:if>
+
+                    <f:if condition="{0: settings.validation.shippingAddress.fields.firstName.validator} != {0: 'Empty'}">
+                        <div class="field first-name">
+                            <f:if condition="{0: settings.validation.shippingAddress.fields.firstName.validator} == {0: 'NotEmpty'}">
+                                <f:then>
+                                    <label for="shippingAddress-firstName" class="required">
+                                        <f:translate key="tx_cart_domain_model_order_address.first_name"/>
+                                        <em>*</em>
+                                    </label>
+                                    <div class="input-box">
+                                        <f:form.textfield id="shippingAddress-firstName"
+                                                          class="form-control"
+                                                          name="shippingAddress[firstName]"
+                                                          value="{shippingAddress.firstName}"
+                                                          required="true"
+                                                          disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                          data="{disable-shipping:'true'}"/>
+                                        <f:form.validationResults for="shippingAddress">
+                                            <f:if condition="{validationResults.flattenedErrors.firstName}">
+                                                <div class="validation-error alert alert-danger">{validationResults.flattenedErrors.firstName.0.message}</div>
+                                            </f:if>
+                                        </f:form.validationResults>
+                                    </div>
+                                </f:then>
+                                <f:else>
+                                    <label for="shippingAddress-firstName" class="required">
+                                        <f:translate key="tx_cart_domain_model_order_address.first_name"/>
+                                    </label>
+                                    <div class="input-box">
+                                        <f:form.textfield id="shippingAddress-firstName"
+                                                          class="form-control"
+                                                          name="shippingAddress[firstName]"
+                                                          value="{shippingAddress.firstName}"
+                                                          disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                          data="{disable-shipping:'true'}"/>
+                                    </div>
+                                </f:else>
+                            </f:if>
+                        </div>
+                    </f:if>
+
+                    <f:if condition="{0: settings.validation.shippingAddress.fields.lastName.validator} != {0: 'Empty'}">
+                        <div class="field last-name">
+                            <f:if condition="{0: settings.validation.shippingAddress.fields.lastName.validator} == {0: 'NotEmpty'}">
+                                <f:then>
+                                    <label for="shippingAddress-lastName" class="required">
+                                        <f:translate key="tx_cart_domain_model_order_address.last_name"/>
+                                        <em>*</em>
+                                    </label>
+                                    <div class="input-box">
+                                        <f:form.textfield id="shippingAddress-lastName"
+                                                          class="form-control"
+                                                          name="shippingAddress[lastName]"
+                                                          value="{shippingAddress.lastName}"
+                                                          required="true"
+                                                          disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                          data="{disable-shipping:'true'}"/>
+                                        <f:form.validationResults for="shippingAddress">
+                                            <f:if condition="{validationResults.flattenedErrors.lastName}">
+                                                <div class="validation-error alert alert-danger">{validationResults.flattenedErrors.lastName.0.message}</div>
+                                            </f:if>
+                                        </f:form.validationResults>
+                                    </div>
+                                </f:then>
+                                <f:else>
+                                    <label for="shippingAddress-lastName">
+                                        <f:translate key="tx_cart_domain_model_order_address.last_name"/>
+                                    </label>
+                                    <div class="input-box">
+                                        <f:form.textfield id="shippingAddress-lastName"
+                                                          class="form-control"
+                                                          name="shippingAddress[lastName]"
+                                                          value="{shippingAddress.lastName}"
+                                                          disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                          data="{disable-shipping:'true'}"/>
+                                    </div>
+                                </f:else>
+                            </f:if>
+                        </div>
+                    </f:if>
+                </div>
+
+                <f:if condition="{0: settings.validation.shippingAddress.fields.email.validator} != {0: 'Empty'}">
+                    <div class="field">
+                        <f:if condition="{0: settings.validation.shippingAddress.fields.email.validator} == {0: 'NotEmpty'}">
+                            <f:then>
+                                <label for="shippingAddress-email" class="required">
+                                    <f:translate key="tx_cart_domain_model_order_address.email"/>
+                                    <em>*</em>
+                                </label>
+                                <div class="input-box">
+                                    <f:form.textfield id="shippingAddress-email"
+                                                      class="form-control"
+                                                      name="shippingAddress[email]"
+                                                      value="{shippingAddress.email}"
+                                                      type="email"
+                                                      required="true"
+                                                      disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                      data="{disable-shipping:'true'}"/>
+                                    <f:form.validationResults for="shippingAddress">
+                                        <f:if condition="{validationResults.flattenedErrors.email}">
+                                            <div class="validation-error alert alert-danger">{validationResults.flattenedErrors.email.0.message}</div>
+                                        </f:if>
+                                    </f:form.validationResults>
+                                </div>
+                            </f:then>
+                            <f:else>
+                                <label for="shippingAddress-email">
+                                    <f:translate key="tx_cart_domain_model_order_address.email"/>
+                                </label>
+                                <div class="input-box">
+                                    <f:form.textfield id="shippingAddress-email"
+                                                      class="form-control"
+                                                      name="shippingAddress[email]"
+                                                      value="{shippingAddress.email}"
+                                                      type="email"
+                                                      disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                      data="{disable-shipping:'true'}"/>
+                                </div>
+                            </f:else>
+                        </f:if>
+                    </div>
+                </f:if>
+
+                <f:if condition="{0: settings.validation.shippingAddress.fields.phone.validator} != {0: 'Empty'}">
+                    <div class="field">
+                        <f:if condition="{0: settings.validation.shippingAddress.fields.phone.validator} == {0: 'NotEmpty'}">
+                            <f:then>
+                                <label for="shippingAddress-phone" class="required">
+                                    <f:translate key="tx_cart_domain_model_order_address.phone"/>
+                                    <em>*</em>
+                                </label>
+                                <div class="input-box">
+                                    <f:form.textfield id="shippingAddress-phone"
+                                                      class="form-control"
+                                                      name="shippingAddress[phone]"
+                                                      value="{shippingAddress.phone}"
+                                                      type="phone"
+                                                      required="true"
+                                                      disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                      data="{disable-shipping:'true'}"/>
+                                    <f:form.validationResults for="shippingAddress">
+                                        <f:if condition="{validationResults.flattenedErrors.phone}">
+                                            <div class="validation-error alert alert-danger">{validationResults.flattenedErrors.phone.0.message}</div>
+                                        </f:if>
+                                    </f:form.validationResults>
+                                </div>
+                            </f:then>
+                            <f:else>
+                                <label for="shippingAddress-phone">
+                                    <f:translate key="tx_cart_domain_model_order_address.phone"/>
+                                </label>
+                                <div class="input-box">
+                                    <f:form.textfield id="shippingAddress-phone"
+                                                      class="form-control"
+                                                      name="shippingAddress[phone]"
+                                                      value="{shippingAddress.phone}"
+                                                      type="phone"
+                                                      disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                      data="{disable-shipping:'true'}"/>
+                                </div>
+                            </f:else>
+                        </f:if>
+                    </div>
+                </f:if>
+
+                <f:if condition="{0: settings.validation.shippingAddress.fields.fax.validator} != {0: 'Empty'}">
+                    <div class="field">
+                        <f:if condition="{0: settings.validation.shippingAddress.fields.fax.validator} == {0: 'NotEmpty'}">
+                            <f:then>
+                                <label for="shippingAddress-fax" class="required">
+                                    <f:translate key="tx_cart_domain_model_order_address.fax"/>
+                                    <em>*</em>
+                                </label>
+                                <div class="input-box">
+                                    <f:form.textfield id="shippingAddress-fax"
+                                                      class="form-control"
+                                                      name="shippingAddress[fax]"
+                                                      value="{shippingAddress.fax}"
+                                                      type="fax"
+                                                      required="true"
+                                                      disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                      data="{disable-shipping:'true'}"/>
+                                    <f:form.validationResults for="shippingAddress">
+                                        <f:if condition="{validationResults.flattenedErrors.fax}">
+                                            <div class="validation-error alert alert-danger">{validationResults.flattenedErrors.fax.0.message}</div>
+                                        </f:if>
+                                    </f:form.validationResults>
+                                </div>
+                            </f:then>
+                            <f:else>
+                                <label for="shippingAddress-fax">
+                                    <f:translate key="tx_cart_domain_model_order_address.fax"/>
+                                </label>
+                                <div class="input-box">
+                                    <f:form.textfield id="shippingAddress-fax"
+                                                      class="form-control"
+                                                      name="shippingAddress[fax]"
+                                                      value="{shippingAddress.fax}"
+                                                      type="fax"
+                                                      disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                      data="{disable-shipping:'true'}"/>
+                                </div>
+                            </f:else>
+                        </f:if>
+                    </div>
+                </f:if>
+
+                <f:if condition="{0: settings.validation.shippingAddress.fields.company.validator} != {0: 'Empty'}">
+                    <div class="field">
+                        <f:if condition="{0: settings.validation.shippingAddress.fields.company.validator} == {0: 'NotEmpty'}">
+                            <f:then>
+                                <label for="shippingAddress-company" class="required">
+                                    <f:translate key="tx_cart_domain_model_order_address.company"/>
+                                    <em>*</em>
+                                </label>
+                                <div class="input-box">
+                                    <f:form.textfield id="shippingAddress-company"
+                                                      class="form-control"
+                                                      name="shippingAddress[company]"
+                                                      value="{shippingAddress.company}"
+                                                      required="true"
+                                                      disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                      data="{disable-shipping:'true'}"/>
+                                    <f:form.validationResults for="shippingAddress">
+                                        <f:if condition="{validationResults.flattenedErrors.company}">
+                                            <div class="validation-error alert alert-danger">{validationResults.flattenedErrors.company.0.message}</div>
+                                        </f:if>
+                                    </f:form.validationResults>
+                                </div>
+                            </f:then>
+                            <f:else>
+                                <label for="shippingAddress-company">
+                                    <f:translate key="tx_cart_domain_model_order_address.company"/>
+                                </label>
+                                <div class="input-box">
+                                    <f:form.textfield id="shippingAddress-company"
+                                                      class="form-control"
+                                                      name="shippingAddress[company]"
+                                                      value="{shippingAddress.company}"
+                                                      disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                      data="{disable-shipping:'true'}"/>
+                                </div>
+                            </f:else>
+                        </f:if>
+                    </div>
+                </f:if>
+
+                <div class="field">
+                    <f:if condition="{0: settings.validation.shippingAddress.fields.streetNumber.validator} != {0: 'Empty'}">
+                        <f:then>
+                            <f:if condition="{0: settings.validation.shippingAddress.fields.street.validator} != {0: 'Empty'}">
+                                <div class="row">
+                                    <div class="col-sm-8 column">
+                                        <f:if condition="{0: settings.validation.shippingAddress.fields.street.validator} == {0: 'NotEmpty'}">
+                                            <f:then>
+                                                <label for="shippingAddress-street" class="required">
+                                                    <f:translate key="tx_cart_domain_model_order_address.street"/>
+                                                    <em>*</em>
+                                                </label>
+                                                <div class="input-box">
+                                                    <f:form.textfield id="shippingAddress-street"
+                                                                      class="form-control"
+                                                                      name="shippingAddress[street]"
+                                                                      value="{shippingAddress.street}"
+                                                                      required="true"
+                                                                      disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                                      data="{disable-shipping:'true'}"/>
+                                                    <f:form.validationResults for="shippingAddress">
+                                                        <f:if condition="{validationResults.flattenedErrors.street}">
+                                                            <div class="validation-error alert alert-danger">{validationResults.flattenedErrors.street.0.message}</div>
+                                                        </f:if>
+                                                    </f:form.validationResults>
+                                                </div>
+                                            </f:then>
+                                            <f:else>
+                                                <label for="shippingAddress-street">
+                                                    <f:translate key="tx_cart_domain_model_order_address.street"/>
+                                                </label>
+                                                <div class="input-box">
+                                                    <f:form.textfield id="shippingAddress-street"
+                                                                      class="form-control"
+                                                                      name="shippingAddress[street]"
+                                                                      value="{shippingAddress.street}"
+                                                                      disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                                      data="{disable-shipping:'true'}"/>
+                                                </div>
+                                            </f:else>
+                                        </f:if>
+                                    </div>
+                                    <div class="col-sm-4 column">
+                                        <f:if condition="{0: settings.validation.shippingAddress.fields.streetNumber.validator} == {0: 'NotEmpty'}">
+                                            <f:then>
+                                                <label for="shippingAddress-streetNumber" class="required">
+                                                    <f:translate key="tx_cart_domain_model_order_address.street_number"/>
+                                                    <em>*</em>
+                                                </label>
+                                                <div class="input-box">
+                                                    <f:form.textfield id="shippingAddress-streetNumber"
+                                                                      class="form-control"
+                                                                      name="shippingAddress[streetNumber]"
+                                                                      value="{shippingAddress.streetNumber}"
+                                                                      required="true"
+                                                                      disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                                      data="{disable-shipping:'true'}"/>
+                                                    <f:form.validationResults for="shippingAddress">
+                                                        <f:if condition="{validationResults.flattenedErrors.streetNumber}">
+                                                            <div class="validation-error alert alert-danger">{validationResults.flattenedErrors.streetNumber.0.message}</div>
+                                                        </f:if>
+                                                    </f:form.validationResults>
+                                                </div>
+                                            </f:then>
+                                            <f:else>
+                                                <label for="shippingAddress-streetNumber">
+                                                    <f:translate key="tx_cart_domain_model_order_address.street_number"/>
+                                                </label>
+                                                <div class="input-box">
+                                                    <f:form.textfield id="shippingAddress-streetNumber"
+                                                                      class="form-control"
+                                                                      name="shippingAddress[streetNumber]"
+                                                                      value="{shippingAddress.streetNumber}"
+                                                                      disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                                      data="{disable-shipping:'true'}"/>
+                                                </div>
+                                            </f:else>
+                                        </f:if>
+                                    </div>
+                                </div>
+                            </f:if>
+                        </f:then>
+                        <f:else>
+                            <f:if condition="{0: settings.validation.shippingAddress.fields.street.validator} != {0: 'Empty'}">
+                                <div class="row">
+                                    <div class="col-sm-12 column">
+                                        <f:if condition="{0: settings.validation.shippingAddress.fields.street.validator} == {0: 'NotEmpty'}">
+                                            <f:then>
+                                                <label for="shippingAddress-street" class="required">
+                                                    <f:translate key="tx_cart_domain_model_order_address.street"/>
+                                                    <em>*</em>
+                                                </label>
+                                                <div class="input-box">
+                                                    <f:form.textfield id="shippingAddress-street"
+                                                                      class="form-control"
+                                                                      name="shippingAddress[street]"
+                                                                      value="{shippingAddress.street}"
+                                                                      required="true"
+                                                                      disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                                      data="{disable-shipping:'true'}"/>
+                                                    <f:form.validationResults for="shippingAddress">
+                                                        <f:if condition="{validationResults.flattenedErrors.street}">
+                                                            <div class="validation-error alert alert-danger">{validationResults.flattenedErrors.street.0.message}</div>
+                                                        </f:if>
+                                                    </f:form.validationResults>
+                                                </div>
+                                            </f:then>
+                                            <f:else>
+                                                <label for="shippingAddress-street">
+                                                    <f:translate key="tx_cart_domain_model_order_address.street"/>
+                                                </label>
+                                                <div class="input-box">
+                                                    <f:form.textfield id="shippingAddress-street"
+                                                                      class="form-control"
+                                                                      name="shippingAddress[street]"
+                                                                      value="{shippingAddress.street}"
+                                                                      disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                                      data="{disable-shipping:'true'}"/>
+                                                </div>
+                                            </f:else>
+                                        </f:if>
+                                    </div>
+                                </div>
+                            </f:if>
+                        </f:else>
+                    </f:if>
+
+                    <f:if condition="{0: settings.validation.shippingAddress.fields.addition.validator} != {0: 'Empty'}">
+                        <div class="field">
+                            <f:if condition="{0: settings.validation.shippingAddress.fields.addition.validator} == {0: 'NotEmpty'}">
+                                <f:then>
+                                    <label for="shippingAddress-addition" class="required">
+                                        <f:translate key="tx_cart_domain_model_order_address.addition"/>
+                                        <em>*</em>
+                                    </label>
+                                    <div class="input-box">
+                                        <f:form.textfield id="shippingAddress-addition"
+                                                          class="form-control"
+                                                          name="shippingAddress[addition]"
+                                                          value="{shippingAddress.addition}"
+                                                          required="true"
+                                                          disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                          data="{disable-shipping:'true'}"/>
+                                        <f:form.validationResults for="shippingAddress">
+                                            <f:if condition="{validationResults.flattenedErrors.addition}">
+                                                <div class="validation-error alert alert-danger">{validationResults.flattenedErrors.addition.0.message}</div>
+                                            </f:if>
+                                        </f:form.validationResults>
+                                    </div>
+                                </f:then>
+                                <f:else>
+                                    <label for="shippingAddress-addition">
+                                        <f:translate key="tx_cart_domain_model_order_address.addition"/>
+                                    </label>
+                                    <div class="input-box">
+                                        <f:form.textfield id="shippingAddress-addition"
+                                                          class="form-control"
+                                                          name="shippingAddress[addition]"
+                                                          value="{shippingAddress.addition}"
+                                                          disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                          data="{disable-shipping:'true'}"/>
+                                    </div>
+                                </f:else>
+                            </f:if>
+                        </div>
+                    </f:if>
+
+                    <div class="row">
+                        <f:if condition="{0: settings.validation.shippingAddress.fields.zip.validator} != {0: 'Empty'}">
+                            <div class="col-sm-4 column">
+                                <div class="field">
+                                    <f:if condition="{0: settings.validation.shippingAddress.fields.zip.validator} == {0: 'NotEmpty'}">
+                                        <f:then>
+                                            <label for="shippingAddress-zip" class="required">
+                                                <f:translate key="tx_cart_domain_model_order_address.zip"/>
+                                                <em>*</em>
+                                            </label>
+                                            <div class="input-box">
+                                                <f:form.textfield id="shippingAddress-zip"
+                                                                  class="form-control"
+                                                                  name="shippingAddress[zip]"
+                                                                  value="{shippingAddress.zip}"
+                                                                  required="true"
+                                                                  disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                                  data="{disable-shipping:'true'}"/>
+                                                <f:form.validationResults for="shippingAddress">
+                                                    <f:if condition="{validationResults.flattenedErrors.zip}">
+                                                        <div class="validation-error alert alert-danger">{validationResults.flattenedErrors.zip.0.message}</div>
+                                                    </f:if>
+                                                </f:form.validationResults>
+                                            </div>
+                                        </f:then>
+                                        <f:else>
+                                            <label for="shippingAddress-zip">
+                                                <f:translate key="tx_cart_domain_model_order_address.zip"/>
+                                            </label>
+                                            <div class="input-box">
+                                                <f:form.textfield id="shippingAddress-zip"
+                                                                  class="form-control"
+                                                                  name="shippingAddress[zip]"
+                                                                  value="{shippingAddress.zip}"
+                                                                  disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                                  data="{disable-shipping:'true'}"/>
+                                            </div>
+                                        </f:else>
+                                    </f:if>
+                                </div>
+                            </div>
+                        </f:if>
+                        <f:if condition="{0: settings.validation.shippingAddress.fields.city.validator} != {0: 'Empty'}">
+                            <div class="col-sm-8 column">
+                                <div class="field">
+                                    <f:if condition="{0: settings.validation.shippingAddress.fields.city.validator} == {0: 'NotEmpty'}">
+                                        <f:then>
+                                            <label for="shippingAddress-city" class="required">
+                                                <f:translate key="tx_cart_domain_model_order_address.city"/>
+                                                <em>*</em>
+                                            </label>
+                                            <div class="input-box">
+                                                <f:form.textfield id="shippingAddress-city"
+                                                                  class="form-control"
+                                                                  name="shippingAddress[city]"
+                                                                  value="{shippingAddress.city}"
+                                                                  required="true"
+                                                                  disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                                  data="{disable-shipping:'true'}"/>
+                                                <f:form.validationResults for="shippingAddress">
+                                                    <f:if condition="{validationResults.flattenedErrors.city}">
+                                                        <div class="validation-error alert alert-danger">{validationResults.flattenedErrors.city.0.message}</div>
+                                                    </f:if>
+                                                </f:form.validationResults>
+                                            </div>
+                                        </f:then>
+                                        <f:else>
+                                            <label for="shippingAddress-city">
+                                                <f:translate key="tx_cart_domain_model_order_address.city"/>
+                                            </label>
+                                            <div class="input-box">
+                                                <f:form.textfield id="shippingAddress-city"
+                                                                  class="form-control"
+                                                                  name="shippingAddress[city]"
+                                                                  value="{shippingAddress.city}"
+                                                                  disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                                  data="{disable-shipping:'true'}"/>
+                                            </div>
+                                        </f:else>
+                                    </f:if>
+                                </div>
+                            </div>
+                        </f:if>
+                    </div>
+
+                    <f:if condition="{0: settings.validation.shippingAddress.fields.country.validator} != {0: 'Empty'}">
+                        <div class="row">
+                            <div class="col-sm-12 column">
+                                <div class="field">
+                                    <f:if condition="{0: settings.validation.shippingAddress.fields.country.validator} == {0: 'NotEmpty'}">
+                                        <f:then>
+                                            <label for="shippingAddress-country" class="required">
+                                                <f:translate key="tx_cart_domain_model_order_address.country"/>
+                                                <em>*</em>
+                                            </label>
+                                            <div class="input-box">
+                                                <f:form.select id="shippingAddress-country"
+                                                                  class="form-control"
+                                                                  name="shippingAddress[country]"
+                                                                  value="{cart.shippingCountry}"
+                                                                  options="{settings.countries.options}"
+                                                                  optionLabelField="label"
+                                                                  optionValueField="code"
+                                                                  required="true"
+                                                                  disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                                  data="{disable-shipping:'true'}"/>
+                                                <f:form.validationResults for="shippingAddress">
+                                                    <f:if condition="{validationResults.flattenedErrors.country}">
+                                                        <div class="validation-error alert alert-danger">{validationResults.flattenedErrors.country.0.message}</div>
+                                                    </f:if>
+                                                </f:form.validationResults>
+                                            </div>
+                                        </f:then>
+                                        <f:else>
+                                            <label for="shippingAddress-country">
+                                                <f:translate key="tx_cart_domain_model_order_address.country"/>
+                                            </label>
+                                            <div class="input-box">
+                                                <f:form.select id="shippingAddress-country"
+                                                                  class="form-control"
+                                                                  name="shippingAddress[country]"
+                                                                  value="{cart.shippingCountry}"
+                                                                  options="{settings.countries.options}"
+                                                                  optionLabelField="label"
+                                                                  optionValueField="code"
+                                                                  disabled="{f:if(condition:'{cart.shippingSameAsBilling}', then:'true')}"
+                                                                  data="{disable-shipping:'true'}"/>
+                                            </div>
+                                        </f:else>
+                                    </f:if>
+                                </div>
+                            </div>
+                        </div>
+                    </f:if>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>
+</html>

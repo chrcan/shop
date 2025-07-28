@@ -1,0 +1,70 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:spaceless>
+
+    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
+        <div class="container">
+            <f:link.page class="navbar-brand" pageUid="{settings.rootId}">
+                <f:image src="{settings.siteLogo}" width='218' alt="{settings.siteTitle}" />
+            </f:link.page>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                    <f:for each="{mainMenu}" as="mainMenuItem">
+
+                        <f:comment>
+                            <f:debug>{mainMenuItem}</f:debug>
+                        </f:comment>
+
+                        <li class="nav-item{f:if(condition:'{mainMenuItem.children}', then: ' dropdown')}">
+
+                            <f:if condition="{mainMenuItem.children}">
+                                <f:then>
+                                    <a class="nav-link dropdown-toggle{f:if(condition:'{mainMenuItem.active}', then: ' active')}"
+                                        href="{mainMenuItem.link}" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        {mainMenuItem.title}
+                                    </a>
+                                </f:then>
+                                <f:else>
+                                    <a class="nav-link{f:if(condition:'{mainMenuItem.active}', then: ' active')}"
+                                        href="{mainMenuItem.link}">
+                                        {mainMenuItem.title}
+                                    </a>
+                                </f:else>
+                            </f:if>
+
+                            <f:if condition="{mainMenuItem.children}">
+                                <f:render section="subMenu" arguments="{subMenu: mainMenuItem.children}" />
+                            </f:if>
+                        </li>
+                    </f:for>
+                </ul>
+            </div>
+            <f:cObject typoscriptObjectPath="lib.miniCart" />
+        </div>
+    </nav>
+
+    <f:section name="subMenu">
+        <ul class="dropdown-menu">
+            <f:for each="{subMenu}" as="subItem">
+                <li>
+                    <a class="dropdown-item{f:if(condition:'{subItem.children}')}{f:if(condition:'{subItem.current}', then: ' active')}"
+                        href="{subItem.link}">
+                        {subItem.title}
+                    </a>
+                    <f:if condition="{subItem.children}">
+                        <f:render section="subMenu" arguments="{subMenu: subItem.children}" />
+                    </f:if>
+                </li>
+            </f:for>
+        </ul>
+    </f:section>
+
+</f:spaceless>
+
+</html>

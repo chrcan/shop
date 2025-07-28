@@ -1,0 +1,119 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        data-namespace-typo3-fluid="true">
+
+<div id="checkout-step-review" class="checkout-step bg-light-grey">
+    <h5 class="checkout-step-title">
+        <span class="checkout-step-number"></span>
+        <f:translate key="tx_cart.controller.order.action.show_cart.block-header.order_overview"/>
+    </h5>
+    <div class="checkout-step-content">
+        <div class="row">
+            <div class="col-sm-12 column">
+                <div class="checkout-step-content-list">
+                    <fieldset>
+                        <div class="checkout-step-fields">
+                            <div class="field accept-terms">
+                                <label for="orderItem-acceptTermsAndConditions">
+                                    <f:if condition="{0: settings.validation.orderItem.fields.acceptTermsAndConditions.validator} == {0: 'Boolean'}">
+                                        <f:form.checkbox id="orderItem-acceptTermsAndConditions"
+                                                         property="acceptTermsAndConditions"
+                                                         title="{f:translate(key:'tx_cart_domain_model_order_item.accept_terms_and_conditions')}"
+                                                         value="1"/>
+                                        <span>
+                                            <f:if condition="{settings.cart.acceptTermsAndConditions.pid}">
+                                                <f:then>
+                                                    <f:format.raw><f:translate key="tx_cart_domain_model_order_item.accept_terms_and_conditions_with_link" arguments="{0: '{f:uri.page(pageUid: \'{settings.cart.acceptTermsAndConditions.pid}\')}', 1:'_blank'}"/></f:format.raw>
+                                                </f:then>
+                                                <f:else>
+                                                    <f:translate key="tx_cart_domain_model_order_item.accept_terms_and_conditions"/>
+                                                </f:else>
+                                            </f:if>
+                                        </span>
+                                    </f:if>
+                                </label>
+                                <f:form.validationResults for="orderItem">
+                                    <f:if condition="{validationResults.flattenedErrors.acceptTermsAndConditions}">
+                                        <div class="validation-error alert alert-danger">
+                                            <f:translate key="tx_cart_domain_model_order_item.accept_terms_and_conditions.error.{validationResults.flattenedErrors.acceptTermsAndConditions.0.code}">{validationResults.flattenedErrors.acceptTermsAndConditions.0.code}</f:translate>
+                                        </div>
+                                    </f:if>
+                                </f:form.validationResults>
+                            </div>
+                            <div class="field accept-terms">
+                                <label for="orderItem-acceptRevocationInstruction">
+                                    <f:if condition="{0: settings.validation.orderItem.fields.acceptRevocationInstruction.validator} == {0: 'Boolean'}">
+                                        <f:form.checkbox id="orderItem-acceptRevocationInstruction"
+                                                         property="acceptRevocationInstruction"
+                                                         title="{f:translate(key:'tx_cart_domain_model_order_item.accept_revocation_instruction')}"
+                                                         value="1"/>
+                                        <span>
+                                            <f:if condition="{settings.cart.acceptRevocationInstruction.pid}">
+                                                <f:then>
+                                                    <f:format.raw><f:translate key="tx_cart_domain_model_order_item.accept_revocation_instruction_with_link" arguments="{0: '{f:uri.page(pageUid: \'{settings.cart.acceptRevocationInstruction.pid}\')}', 1:'_blank'}"/></f:format.raw>
+                                                </f:then>
+                                                <f:else>
+                                                    <f:translate key="tx_cart_domain_model_order_item.accept_revocation_instruction"/>
+                                                </f:else>
+                                            </f:if>
+                                        </span>
+                                    </f:if>
+                                </label>
+                                <f:form.validationResults for="orderItem">
+                                    <f:if condition="{validationResults.flattenedErrors.acceptRevocationInstruction}">
+                                        <div class="validation-error alert alert-danger">
+                                            <f:translate key="tx_cart_domain_model_order_item.accept_revocation_instruction.error.{validationResults.flattenedErrors.acceptRevocationInstruction.0.code}">{validationResults.flattenedErrors.acceptRevocationInstruction.0.code}</f:translate>
+                                        </div>
+                                    </f:if>
+                                </f:form.validationResults>
+                            </div>
+                            <div class="field accept-terms">
+                                <label for="orderItem-acceptPrivacyPolicy">
+                                    <f:if condition="{0: settings.validation.orderItem.fields.acceptPrivacyPolicy.validator} == {0: 'Boolean'}">
+                                        <f:form.checkbox id="orderItem-acceptPrivacyPolicy"
+                                                         property="acceptPrivacyPolicy"
+                                                         title="{f:translate(key:'tx_cart_domain_model_order_item.accept_privacy_policy')}"
+                                                         value="1"/>
+                                        <span>
+                                            <f:if condition="{settings.cart.acceptPrivacyPolicy.pid}">
+                                                <f:then>
+                                                    <f:format.raw><f:translate key="tx_cart_domain_model_order_item.accept_privacy_policy_with_link" arguments="{0: '{f:uri.page(pageUid: \'{settings.cart.acceptPrivacyPolicy.pid}\')}', 1:'_blank'}"/></f:format.raw>
+                                                </f:then>
+                                                <f:else>
+                                                    <f:translate key="tx_cart_domain_model_order_item.accept_privacy_policy"/>
+                                                </f:else>
+                                            </f:if>
+                                        </span>
+                                    </f:if>
+                                </label>
+                                <f:form.validationResults for="orderItem">
+                                    <f:if condition="{validationResults.flattenedErrors.acceptPrivacyPolicy}">
+                                        <div class="validation-error alert alert-danger">
+                                            <f:translate key="tx_cart_domain_model_order_item.accept_privacy_policy.error.{validationResults.flattenedErrors.acceptPrivacyPolicy.0.code}">{validationResults.flattenedErrors.acceptPrivacyPolicy.0.code}</f:translate>
+                                        </div>
+                                    </f:if>
+                                </f:form.validationResults>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>
+                                <span>
+                                    <f:translate key="tx_cart_domain_model_order_item.comment"/>
+                                </span>
+                            </label>
+
+                            <f:form.textarea
+                                    id="orderItem-comment"
+                                    class="form-control"
+                                    name="orderItem[comment]"
+                                    value="{orderItem.comment}"/>
+                        </div>
+                    </fieldset>
+
+                    <f:render partial="Cart/OrderForm/Summary" arguments="{cart:cart}"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

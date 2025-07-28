@@ -1,0 +1,29 @@
+lib.contentElement {
+    templateRootPaths.200 = EXT:rcdesign/Resources/Private/PageView/Pages/ContentElement/
+}
+
+tt_content {
+    rcdesign_rccarousel =< lib.contentElement
+    rcdesign_rccarousel {
+        templateName = RcCarousel
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            10 {
+                table = rccarousel_carousel_item
+                pidInList.field = pid
+                where {
+                    data = field:uid
+                    intval = 1
+                    wrap = tt_content=|
+                }
+                orderBy = sorting
+                dataProcessing {
+                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 {
+                        references.fieldName = media
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+plugin.tx_seo {
+    config {
+        xmlSitemap {
+            sitemaps {
+                pages {
+                    config {
+                        #excludedDoktypes = 9818, 500
+                        additionalWhere = AND no_index = 0
+                    }
+                }
+            }
+        }
+    }
+}

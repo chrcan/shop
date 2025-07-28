@@ -1,0 +1,47 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+<f:if condition="{records}">
+    <div class="row {data.row_items} g-4">
+        <f:for each="{records}" as="item" iteration="iteration">
+
+            <div class="col">
+                <div class="card h-100">
+                    <f:if condition="{item.image.0}">
+                        <f:image image="{item.image.0}" class="card-img-top" loading="lazy" fileExtension="webp" />
+                    </f:if>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <f:link.typolink parameter="{item.data.link}">
+                                {item.data.header}
+                            </f:link.typolink>
+                        </h5>
+                        <f:if condition="{item.data.bodytext}">
+                            <f:format.html>{item.data.bodytext}</f:format.html>
+                        </f:if>
+                    </div>
+
+                    <div class="card-footer d-grid gap-2 d-md-flex justify-content-between">
+                        <div class="btn btn-secondary disabled">
+                            <small class="text-body-light">Erstellt am
+                                <f:format.date format="d.m.Y - H:i">
+                                    {item.creationDate}
+                                </f:format.date>
+                                Uhr
+                            </small>
+                        </div>
+                        <div class="btn btn-warning justify-content-md-end" title="{item.data.header}">
+                            <small class="text-body-light">
+                                <f:link.typolink class="text-body-light" parameter="{item.data.link}">
+                                    {item.data.link_title}
+                                </f:link.typolink>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </f:for>
+    </div>
+</f:if>
+
+</html>

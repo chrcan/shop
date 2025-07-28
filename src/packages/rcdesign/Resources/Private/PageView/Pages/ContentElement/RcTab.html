@@ -1,0 +1,23 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+<f:if condition="{records}">
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <f:for each="{records}" as="item" iteration="iterator">
+        <button class="nav-link {f:if(condition: iterator.isFirst, then: 'active')}" id="{item.sanitizedId}-tab"
+          data-bs-toggle="tab" data-bs-target="#{item.sanitizedId}" type="button" role="tab"
+          aria-controls="{item.sanitizedId}" aria-selected="true">{item.data.header}</button>
+      </f:for>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <f:for each="{records}" as="item" iteration="iterator">
+      <div class="tab-pane fade {f:if(condition: iterator.isFirst, then: 'show active')}" id="{item.sanitizedId}"
+        role="tabpanel" aria-labelledby="{item.sanitizedId}-tab" tabindex="0">
+        <f:format.raw>{item.data.bodytext}</f:format.raw>
+      </div>
+    </f:for>
+  </div>
+</f:if>
+
+</html>

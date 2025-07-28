@@ -1,0 +1,41 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/fluid/ViewHelpers"
+    xmlns:mf="http://typo3.org/ns/MiniFranske/FsMediaGallery/ViewHelpers">
+
+    <f:section name="Thumb">
+        <div class="thumb">
+
+            <f:comment>
+                <f:debug>{_all}</f:debug>
+            </f:comment>
+
+            <f:if condition="{settings.album.lightbox.enable}">
+
+                <f:then>
+                    <f:variable name="lightBoxUrl">
+                        <f:cObject typoscriptObjectPath="lib.watermark_res_rc"
+                            data="{image: mediaAsset.publicUrl, width: '{settings.album.lightbox.asset.width}{settings.album.lightbox.asset.resizeMode}',height: '{settings.album.lightbox.asset.height}{settings.album.lightbox.asset.resizeMode}'}" />
+                    </f:variable>
+                    <a href="{lightBoxUrl}" loading="lazy" class="{settings.album.lightbox.styleClass}"
+                        data-fslightbox="image-{mediaAlbum.uid}" data-type="image"
+                        title="{mf:fileTitle(file:mediaAsset)} - {mediaAlbum.title}">
+                        <f:render partial="MediaAsset/Detail" section="Detail"
+                            arguments="{alt:mediaAsset.alternative, title:mediaAsset.title, mediaAsset:mediaAsset, width:settings.album.thumb.width, height:settings.album.thumb.height, resizeMode:settings.album.thumb.resizeMode}" />
+                        <h4>
+                            <strong>{mediaAlbum.title}</strong><br />
+                            {mf:fileTitle(file:mediaAsset)}
+                        </h4>
+                    </a>
+                </f:then>
+                <f:else>
+                    <f:link.action action="showAsset" arguments="{mediaAlbum:mediaAlbum,mediaAssetUid:mediaAsset.uid}"
+                        title="{mf:fileTitle(file:mediaAsset)} - {mediaAlbum.title}">
+                        <f:render partial="MediaAsset/Detail" section="Detail"
+                            arguments="{alt:mediaAsset.alternative,title:mediaAsset.title,mediaAsset:mediaAsset,width:settings.album.thumb.width,height:settings.album.thumb.height,resizeMode:settings.album.thumb.resizeMode}" />
+                    </f:link.action>
+                </f:else>
+
+            </f:if>
+
+        </div>
+    </f:section>
+</div>

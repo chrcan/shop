@@ -1,0 +1,25 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Plain" />
+<f:section name="main">
+    <f:link.page pageUid="{settings.cart.pid}">
+        <div class="tx-cart cart-preview">
+            <div class="cart-preview-content">
+                <div class="position-relative d-inline-block" role="button" style="cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                        class="bi bi-bag-fill text-secondary" viewBox="0 0 16 16">
+                        <path
+                            d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z" />
+                    </svg>
+                    <span
+                        class="cart-preview-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                        style="font-size: 0.75rem; padding: 0.4em 0.6em;">
+                        {cart.count}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </f:link.page>
+</f:section>
+
+</html>

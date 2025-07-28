@@ -1,0 +1,47 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:cart="http://typo3.org/ns/Extcode/Cart/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:section name="product">
+    <tr>
+        <td>
+            {product.sku}
+        </td>
+        <td>
+            {product.title}
+        </td>
+        <td class="cart-figure">
+            <cart:format.currency currencySign="{currencySign}">{product.price}</cart:format.currency>
+        </td>
+        <td class="cart-figure">
+            <cart:format.currency currencySign="{currencySign}">{product.discount}</cart:format.currency>
+        </td>
+        <td class="cart-figure">
+            {product.count}
+        </td>
+        <td class="cart-figure">
+            <cart:format.currency currencySign="{currencySign}">{product.net}</cart:format.currency>
+        </td>
+        <td class="cart-figure">
+            <cart:format.currency currencySign="{currencySign}">{product.gross}</cart:format.currency>
+        </td>
+        <f:for each="{product.orderItem.orderTotalTax}" as="orderTotalTax">
+            <td class="cart-figure">
+                <f:if condition="{0: orderTotalTax.orderTaxClass.id} == {0: {product.orderTaxClass.id}}">
+                    <f:then>
+                        <cart:format.currency currencySign="{currencySign}">{product.orderTax.tax}</cart:format.currency>
+                    </f:then>
+                    <f:else>
+                        <!-- -->
+                    </f:else>
+                </f:if>
+            </td>
+        </f:for>
+    </tr>
+</f:section>
+
+<f:for each="{orderItem.products}" as="product">
+    <f:render section="product"
+              arguments="{product: product, currencySign: orderItem.currency}"/>
+</f:for>
+</html>

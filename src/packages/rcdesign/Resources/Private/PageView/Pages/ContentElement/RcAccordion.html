@@ -1,0 +1,63 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+<f:comment>
+    <f:debug inline="true">{_all}</f:debug>
+    <f:debug>{records}</f:debug>
+</f:comment>
+
+<f:if condition="{records}">
+    <div class="accordion" id="accordion{data.uid}">
+        <f:for each="{records}" as="item" iteration="iteration">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button
+                        class="{f:if(condition: iteration.isFirst, then: 'accordion-button', else: 'accordion-button collapsed')}"
+                        type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse{data.uid}{item.data.uid}{iteration.cycle}"
+                        aria-expanded="{f:if(condition: iteration.isFirst, then: 'true', else: 'false')}"
+                        aria-controls="collapse{data.uid}{item.data.uid}{iteration.cycle}">
+                        {item.data.header}
+                    </button>
+                </h2>
+                <div id="collapse{data.uid}{item.data.uid}{iteration.cycle}"
+                    class="accordion-collapse collapse{f:if(condition: '{iteration.cycle} == 1', then: ' show')}"
+                    data-bs-parent="#accordion{data.uid}">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="{item.data.position2} {item.data.columnwidth2}">
+                                <f:for each="{item.files}" as="file" iteration="iteration">
+                                    <f:if condition="{file}">
+
+                                        <f:link.typolink parameter="{file.originalFile.publicUrl}"
+                                            additionalAttributes="{data-fslightbox: 'some infoimage-{item.data.uid}', data-type: 'image', fileExtension: 'webp',}">
+                                            <f:media file="{file}" class="pb-2" loading="lazy" width="1400"
+                                                fileExtension="webp" />
+                                        </f:link.typolink>
+
+                                        <f:comment>
+                                            <a href="/fileadmin{file.originalFile.identifier}"
+                                                data-fslightbox="image-{item.data.uid}" data-type="image"
+                                                fileExtension="webp">
+                                                <f:media file="{file}" class="pb-2" loading="lazy" width="1400"
+                                                    fileExtension="webp" />
+                                            </a>
+                                        </f:comment>
+
+                                    </f:if>
+                                </f:for>
+                            </div>
+                            <div class="{item.data.position1} {item.data.columnwidth1}">
+                                <f:format.html>{item.data.bodytext}</f:format.html>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </f:for>
+    </div>
+
+</f:if>
+
+
+
+</html>

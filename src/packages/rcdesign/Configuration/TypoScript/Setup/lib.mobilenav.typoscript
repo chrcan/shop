@@ -1,0 +1,19 @@
+#################################################################################
+## Mobile Navigation
+#################################################################################
+lib.menu = HMENU
+lib.menu.wrap = <nav id="menu_mobil">|</nav>
+lib.menu.1 = TMENU
+lib.menu.1 {
+    expAll = 1
+    wrap = <ul>|</ul>
+    NO {
+        wrapItemAndSub = <li>|</li>
+    }
+    CUR = 1
+    CUR {
+        wrapItemAndSub = <li class="Selected">|</li>
+    }
+}
+lib.menu.2 < lib.menu.1
+lib.menu.3 < lib.menu.1

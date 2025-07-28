@@ -1,0 +1,33 @@
+<div class="accordion" id="accordion{data.uid}">
+    <f:for each="{data.accordion_item}" as="item" iteration="iteration">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button
+                    class="{f:if(condition: iteration.isFirst, then: 'accordion-button', else: 'accordion-button collapsed')}"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#collapse{data.uid}{iteration.cycle}"
+                    aria-expanded="{f:if(condition: iteration.isFirst, then: 'true', else: 'false')}"
+                    aria-controls="collapse{data.uid}{iteration.cycle}">
+                    {item.title}
+                </button>
+            </h2>
+            <div id="collapse{data.uid}{iteration.cycle}"
+                class="accordion-collapse collapse{f:if(condition: '{iteration.cycle} == 1', then: ' show')}"
+                data-bs-parent="#accordion{data.uid}">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="{item.settings1.alignment1} {item.settings1.row_items1}">
+                            <f:if condition="{item.image.0}">
+                                <f:image src="{item.image.0.uid}" treatIdAsReference="1" />
+                            </f:if>
+                        </div>
+                        <div class="{item.settings2.alignment2} {item.settings2.row_items2}">
+                            <f:format.html>{item.bodytext}</f:format.html>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </f:for>
+</div>
+
+</html>

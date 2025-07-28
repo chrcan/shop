@@ -1,0 +1,64 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:section name="address">
+    <div>
+        <div>
+            <span>{address.salutation} {address.title} {address.firstName} {address.lastName}</span><br/>
+            <f:if condition="{address.company}">
+                <span>{address.company}</span><br/>
+            </f:if>
+            {address.street} {address.streetNumber}<br/>
+            <f:if condition="{address.addition}">
+                <span>{address.addition}</span><br/>
+            </f:if>
+            {address.zip} {address.city}<br/>
+            <f:if condition="{address.country}">
+                <f:translate key="tx_cart.settings.allowed_countries.{address.country}" default="{address.country}"/>
+            </f:if>
+        </div>
+        <br/>
+        <div>
+            <f:if condition="{address.email}">
+                {address.email}<br/>
+            </f:if>
+            <f:if condition="{address.phone}">
+                {address.phone}<br/>
+            </f:if>
+            <f:if condition="{address.fax}">
+                {address.fax}<br/>
+            </f:if>
+        </div>
+        <f:if condition="{address.taxIdentificationNumber}">
+            <br/>
+            <div>
+                <strong>
+                    <f:translate key="tx_cart_domain_model_order_address.tax_identification_number"/>
+                    :<br/></strong>
+                {address.taxIdentificationNumber}
+            </div>
+        </f:if>
+
+    </div>
+</f:section>
+
+<div class="card-container">
+    <div class="card card-size-fixed-small p-4">
+        <f:if condition="{orderItem.billingAddress}">
+            <h4>
+                <f:translate key="tx_cart_domain_model_order_item.billing_address"/>
+            </h4>
+            <f:render section="address" arguments="{address: orderItem.billingAddress}"/>
+        </f:if>
+    </div>
+
+    <f:if condition="{orderItem.shippingAddress}">
+        <div class="card card-size-fixed-small p-4">
+            <h4>
+                <f:translate key="tx_cart_domain_model_order_item.shipping_address"/>
+            </h4>
+            <f:render section="address" arguments="{address: orderItem.shippingAddress}"/>
+        </div>
+    </f:if>
+</div>
+</html>

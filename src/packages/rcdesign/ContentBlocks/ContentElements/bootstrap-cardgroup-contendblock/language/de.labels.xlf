@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<xliff version="1.0">
+	<file datatype="plaintext" original="messages" source-language="en" product-name="card-group">
+		<header/>
+		<body>
+			<trans-unit id="title" xml:space="preserve">
+				<source>Bootstrap 5 Card Group</source>
+				<target>Bootstrap 5 Card Gruppe</target>
+			</trans-unit>
+			<trans-unit id="description" xml:space="preserve">
+				<source>Add a group with several cards</source>
+				<target>Eine Gruppe mit mehreren Karten anlegen</target>
+			</trans-unit>
+			<trans-unit id="header.label" xml:space="preserve">
+				<source>Header</source>
+				<target>Kopfzeile</target>
+			</trans-unit>
+			<trans-unit id="card_group_item.label" xml:space="preserve">
+				<source>Card group items</source>
+				<target>Elemente der Kartengruppe</target>
+			</trans-unit>
+			<trans-unit id="settings.label" xml:space="preserve">
+				<source>Settings</source>
+				<target>Einstellungen</target>
+			</trans-unit>
+			<trans-unit id="settings.row_items.label" xml:space="preserve">
+				<source>Items per row</source>
+				<target>Karten pro Zeile</target>
+			</trans-unit>
+			<trans-unit id="card_group_item.image.label" xml:space="preserve">
+				<source>Image</source>
+				<target>Bild</target>
+			</trans-unit>
+			<trans-unit id="card_group_item.title.label" xml:space="preserve">
+				<source>Title</source>
+				<target>Überschrift</target>
+			</trans-unit>
+			<trans-unit id="card_group_item.bodytext.label" xml:space="preserve">
+				<source>Bodytext</source>
+				<target>Textkörper</target>
+			</trans-unit>
+			<trans-unit id="card_group_item.link.label" xml:space="preserve">
+				<source>Link</source>
+				<target>Link</target>
+			</trans-unit>
+			<trans-unit id="card_group_item.link_title.label" xml:space="preserve">
+				<source>Link title</source>
+				<target>Link Überschrift</target>
+			</trans-unit>
+			<trans-unit id="readmore" xml:space="preserve">
+				<source>Read more</source>
+				<target>Mehr lesen</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

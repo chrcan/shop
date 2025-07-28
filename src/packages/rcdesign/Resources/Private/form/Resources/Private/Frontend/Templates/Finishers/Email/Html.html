@@ -1,0 +1,51 @@
+{namespace formvh=TYPO3\CMS\Form\ViewHelpers}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="format-detection" content="telephone=no">
+</head>
+<style>
+	p, table{font-family: Verdana; font-size: 10pt;}
+	.leftColumn {padding: 5px; background-color: #e6e6e6;width:5%;}
+	.rightColumn {padding: 5px; background-color: #ccc;width:20%;}
+</style>
+<body>
+	<table cellspacing="2">
+		<p>Hallo Team Eberl, der Kunde {singleselect-2} {text-1} {text-2} hat soeben eine Anfrage gestellt.</p>
+		<formvh:renderAllFormValues renderable="{form.formDefinition}" as="formValue">
+			<tr>
+				<td class="leftColumn">{formvh:translateElementProperty(element: formValue.element, property: 'label')}</td>
+				<td class="rightColumn">
+					<f:if condition="{formValue.value}">
+						<f:then>
+							<f:if condition="{formValue.isMultiValue}">
+								<f:then>
+									<table cellspacing="2">
+										<f:for each="{formValue.processedValue}" as="value">
+											<tr>
+												<td>{value}</td>
+											</tr>
+										</f:for>
+									</table>
+								</f:then>
+								<f:else>
+									<table cellspacing="2">
+										<tr>
+											<td><f:format.nl2br>{formValue.processedValue}</f:format.nl2br></td>
+										</tr>
+									</table>
+								</f:else>
+							</f:if>
+						</f:then>
+						<f:else>
+							-
+						</f:else>
+					</f:if>
+				</td>
+			</tr>
+		</formvh:renderAllFormValues>
+	</table>
+</body>
+</html>

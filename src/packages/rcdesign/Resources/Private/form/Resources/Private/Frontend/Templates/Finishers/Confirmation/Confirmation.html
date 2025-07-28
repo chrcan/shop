@@ -1,0 +1,13 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+<div id="{form.identifier}" class="rcform">
+        <f:if condition="{isPreparedMessage}">
+            <f:then>
+                {message -> f:format.raw()}
+            </f:then>
+            <f:else>
+                <h4 class="section-title">Nachricht wurde erfolgreich gesendet!</h4>
+                <p>{message -> f:format.html(parseFuncTSPath: 'lib.parseFunc')}</p>
+            </f:else>
+        </f:if>
+    </div>
+</html>

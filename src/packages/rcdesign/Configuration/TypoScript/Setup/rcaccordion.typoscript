@@ -1,0 +1,98 @@
+lib.contentElement {
+  templateRootPaths.200 = EXT:rcdesign/Resources/Private/PageView/Pages/ContentElement/
+}
+
+tt_content {
+  rcdesign_rcaccordion =< lib.contentElement
+  rcdesign_rcaccordion {
+    templateName = RcAccordion
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        10 {
+            table = rcaccordion_accordion_item
+            pidInList.field = pid
+            where {
+                data = field:uid
+                intval = 1
+                wrap = tt_content=|
+            }
+            orderBy = sorting
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = media
+                }
+            }
+        }
+    }
+  }
+}
+
+lib.contentElement.settings.responsiveimages.contentelements {
+    rcaccordion {
+        left {
+            multiplier {
+                default = 0.5
+                xlarge = 0.5
+                large = 0.5
+                medium = 0.5
+            }
+            gutters {
+                default = 16
+                xlarge = 16
+                large = 16
+                medium = 16
+            }
+            corrections {
+                default = 21
+                xlarge = 21
+                large = 21
+                medium = 21
+                small = 42
+                extrasmall = 42
+            }
+        }
+        top {
+            corrections {
+                default = 42
+                xlarge = 42
+                large = 42
+                medium = 42
+                small = 42
+                extrasmall = 42
+            }
+        }
+        right {
+            multiplier {
+                default = 0.5
+                xlarge = 0.5
+                large = 0.5
+                medium = 0.5
+            }
+            gutters {
+                default = 16
+                xlarge = 16
+                large = 16
+                medium = 16
+            }
+            corrections {
+                default = 21
+                xlarge = 21
+                large = 21
+                medium = 21
+                small = 42
+                extrasmall = 42
+            }
+        }
+        bottom {
+            corrections {
+                default = 42
+                xlarge = 42
+                large = 42
+                medium = 42
+                small = 42
+                extrasmall = 42
+            }
+        }
+    }
+}

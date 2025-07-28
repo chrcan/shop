@@ -1,0 +1,105 @@
+name: rcdesign/bootstrap-accordion-contentblock
+title: rcdesign/bootstrap-accordion-contentblock
+description: 'Bootstrap5 Accordion ContentBlock'
+group: common
+prefixFields: true
+prefixType: full
+security:
+  ignorePageTypeRestriction: true
+# fields:
+#   -
+#     identifier: header
+#     useExistingField: true
+#     label: 'Überschrift'
+#   -
+#     identifier: bodytext
+#     useExistingField: true
+#     enableRichtext: true
+#     label: 'Inhalt'
+#   -
+#     identifier: image
+#     useExistingField: true
+#     label: 'Bild'
+
+fields:
+  - identifier: header
+    useExistingField: true
+
+  - identifier: accordion_item
+    type: Collection
+    labelField: title
+    minitems: 1
+    fields:
+      - identifier: image
+        type: File
+      - identifier: settings1
+        type: FlexForm
+        fields:
+          - identifier: alignment1
+            type: Select
+            renderType: selectSingle
+            items:
+              - label: 'Left'
+                value: 'order-first'
+              - label: 'Right'
+                value: 'order-last'
+          - identifier: row_items1
+            type: Select
+            renderType: selectSingle
+            items:
+              - label: 'col-2'
+                value: 'col-2'
+              - label: 'col-3'
+                value: 'col-3'
+              - label: 'col-4'
+                value: 'col-4'
+              - label: 'col-5'
+                value: 'col-5'
+              - label: 'col-6'
+                value: 'col-6'
+              - label: 'col-7'
+                value: 'col-7'
+              - label: 'col-8'
+                value: 'col-8'
+              - label: 'col-9'
+                value: 'col-9'
+              - label: 'col-10'
+                value: 'col-10'
+      - identifier: title
+        type: Text
+      - identifier: bodytext
+        type: Textarea
+        enableRichtext: true
+      - identifier: settings2
+        type: FlexForm
+        fields:
+          - identifier: alignment2
+            type: Select
+            renderType: selectSingle
+            items:
+              - label: 'Left'
+                value: 'order-first'
+              - label: 'Right'
+                value: 'order-last'
+          - identifier: row_items2
+            type: Select
+            renderType: selectSingle
+            items:
+              - label: 'col-2'
+                value: 'col-2'
+              - label: 'col-3'
+                value: 'col-3'
+              - label: 'col-4'
+                value: 'col-4'
+              - label: 'col-5'
+                value: 'col-5'
+              - label: 'col-6'
+                value: 'col-6'
+              - label: 'col-7'
+                value: 'col-7'
+              - label: 'col-8'
+                value: 'col-8'
+              - label: 'col-9'
+                value: 'col-9'
+              - label: 'col-10'
+                value: 'col-10'
