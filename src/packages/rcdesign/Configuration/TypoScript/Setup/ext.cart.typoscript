@@ -13,8 +13,8 @@ plugin.tx_cart {
         cart {
             pid = 2
         }
-        order{
-            pid = 6
+        order {
+            pid = 15
         }
 
         mail {
