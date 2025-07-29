@@ -107,7 +107,7 @@ plugin.tx_cart {
                     1 {
                         title = Vorkasse
                         extra = 0.00
-                        taxClassId = 1
+                        taxClassId = 3
                         status = open
                     }
                 }
