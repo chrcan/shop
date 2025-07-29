@@ -82,21 +82,31 @@ plugin.tx_cart {
             }
         }
     }
+    taxClasses >
     taxClasses {
-        1 {
-            value = 20
-            calc = 0.20
-            name = normal
+        at {
+            1 {
+                value = 20
+                calc = 0.20
+                name = normal
+            }
+            2 {
+                value = 10
+                calc = 0.10
+                name = reduced
+            }
+            3 {
+                value = 0
+                calc = 0.00
+                name = free
+            }
         }
-        2 {
-            value = 10
-            calc = 0.10
-            name = reduced
-        }
-        3 {
-            value = 0
-            calc = 0.00
-            name = free
+        fallback {
+            1 {
+                value = 0
+                calc = 0.00
+                name = free
+            }
         }
     }
     payments {
@@ -107,7 +117,7 @@ plugin.tx_cart {
                     1 {
                         title = Vorkasse
                         extra = 0.00
-                        taxClassId = 3
+                        taxClassId = 1
                         status = open
                     }
                 }
@@ -124,7 +134,7 @@ plugin.tx_cart {
                     1 {
                         title = E-Mail
                         extra = 0.00
-                        taxClassId = 3
+                        taxClassId = 1
                         status = open
                     }
                 }
