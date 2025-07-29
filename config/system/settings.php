@@ -43,7 +43,7 @@ return [
             'loginLogoAlt' => '',
         ],
         'cart_products' => [
-            'categoryRestriction' => 'none',
+            'categoryRestriction' => '',
         ],
         'extensionmanager' => [
             'automaticInstallation' => '1',

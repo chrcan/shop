@@ -1,3 +1,6 @@
+// @import "EXT:cart/Configuration/TypoScript/constants.typoscript"
+// @import "EXT:cart_products/Configuration/TypoScript/constants.typoscript"
+
 styles.content.textmedia.linkWrap.lightboxEnabled = 1
 styles.content.textmedia.linkWrap.width = 1400m
 styles.content.textmedia.linkWrap.height = 1400m
@@ -11,12 +14,12 @@ rcDesign {
     siteLogo = EXT:rcdesign/Resources/Public/Images/typo3.svg
     siteTitle = Titel der Homepage
     siteLogoRC = EXT:rcdesign/Resources/Public/Images/rcdesign.png
-    rcUrl = https://rc-design.at
+    rcUrl = https://tester.at
     fbUrl = https://www.facebook.com
     fbImage = EXT:rcdesign/Resources/Public/Images/icon-2.png
     rootId =  1
     metaNavId = 10
     #searchId = 19
-    #mailAdresse = office@ifbbaustria.at?subject='Anfrage von Homepage'
-    #mailAdresse = office@ifbbaustria.at?subject='Anfrage%20von%20Homepage'
+    #mailAdresse = test@tester.at?subject='Anfrage von Homepage'
+    #mailAdresse = test@tester.at?subject='Anfrage%20von%20Homepage'
 }

@@ -16,6 +16,7 @@ plugin.tx_cart {
         order {
             pid = 15
         }
+        autoGenerateNumbers = order
 
         mail {
             // Used for emails sent to the customer (=buyer)
@@ -33,6 +34,8 @@ plugin.tx_cart {
         cart {
             acceptTermsAndConditions.pid = 12
             acceptPrivacyPolicy.pid = 11
+            // checkoutSteps
+            // steps = 4
         }
 
         validation {
@@ -41,6 +44,14 @@ plugin.tx_cart {
                     acceptRevocationInstruction >
                 }
             }
+            // billingAddress {
+            //     fields {
+            //         street.validator = Empty
+            //         zip.validator = Empty
+            //         city.validator = Empty
+            //         country.validator = Empty
+            //     }
+            // }
         }
 
         countries {
@@ -76,9 +87,19 @@ plugin.tx_cart {
                     cart.net = true
                     cart.taxes = true
                     discount.gross = true
-                    service.gross = true
+                    service.gross = false
                     total.gross = true
                 }
+            }
+        }
+        format {
+            currency {
+                currencySign       = &euro;
+                decimalSeparator   = ,
+                thousandsSeparator = .
+                prependCurrency    = false
+                separateCurrency   = true
+                decimals           = 2
             }
         }
     }

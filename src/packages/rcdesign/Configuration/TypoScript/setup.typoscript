@@ -1,1 +1,3 @@
 @import "EXT:rcdesign/Configuration/TypoScript/Setup/*.typoscript"
+// @import "EXT:cart/Configuration/TypoScript/setup.typoscript"
+// @import "EXT:cart_products/Configuration/TypoScript/setup.typoscript"
